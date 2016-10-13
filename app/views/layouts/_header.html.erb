@@ -10,6 +10,22 @@
         <li>
           <%= link_to t("static_pages.about"), about_path %>
         </li>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to t("users.edit"), edit_user_registration_path %>
+          </li>
+          <li>
+            <%= link_to t("users.logout"), destroy_user_session_path,
+              method: :delete %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to t("users.login"), new_user_session_path %>
+          </li>
+          <li>
+            <%= link_to t("users.signin"), new_user_registration_path %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>

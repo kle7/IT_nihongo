@@ -5,3 +5,8 @@ en:
     intro: "Best place to review Movie!"
     login: "LOG IN NOW!"
     about: "ABOUT"
+  users:
+    edit: "Edit"
+    login: "Login"
+    logout: "Log out"
+    signin: "Sign in"
