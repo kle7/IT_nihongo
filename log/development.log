@@ -1142,3 +1142,24 @@ Processing by StaticPagesController#home as HTML
   Rendered layouts/_header.html.erb (1.5ms)
   Rendered layouts/_flash.html.erb (0.1ms)
 Completed 200 OK in 33ms (Views: 32.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 1.55.245.78 at 2016-10-14 07:27:49 +0000
+Cannot render console from 1.55.245.78! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (338.5ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (5.7ms)
+  Rendered layouts/_flash.html.erb (0.4ms)
+Completed 200 OK in 3435ms (Views: 3422.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 1.55.245.78 at 2016-10-14 07:28:01 +0000
+Cannot render console from 1.55.245.78! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (3.9ms)
+  Rendered layouts/_flash.html.erb (0.1ms)
+Completed 200 OK in 45ms (Views: 44.3ms | ActiveRecord: 0.0ms)
