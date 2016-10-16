@@ -1,0 +1,32 @@
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to root_path do %>
+        <%= image_tag "logo.jpeg", class: "header-img" %>
+      <% end %>  
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to t("static_pages.about"), about_path %>
+        </li>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to t("users.edit"), edit_user_registration_path %>
+          </li>
+          <li>
+            <%= link_to t("users.logout"), destroy_user_session_path,
+              method: :delete %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to t("users.login"), new_user_session_path %>
+          </li>
+          <li>
+            <%= link_to t("users.signin"), new_user_registration_path %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
