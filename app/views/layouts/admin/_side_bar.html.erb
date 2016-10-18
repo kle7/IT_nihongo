@@ -1,0 +1,66 @@
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <li class="sidebar-brand">
+      <%= link_to admin_root_path do %>
+        <%= image_tag "logo.jpeg", class: "header-img" %>
+      <% end %>  
+    </li>
+    <li class="panel-group">
+      <%= link_to admin_root_path do %>
+        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>  
+        <%= t :dash_board %>
+      <% end %>
+    </li>
+    <li class="panel-group">
+      <a data-toggle="collapse" href="#user">
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
+        <%= t :user %>
+      </a>
+      <ul id="user" class="panel-collapse collapse">
+        <li>
+          <%= link_to t("navbar.user"), "#" %>
+        </li>
+      </ul>
+    </li>
+    <li class="panel-group">
+      <a data-toggle="collapse" href="#category">
+        <span class="glyphicon glyphicon-file" aria-hidden="true"></span>  
+        <%= t "categories.category" %>
+      </a>
+      <ul id="category" class="panel-collapse collapse">
+        <li>
+          <%= link_to t("navbar.new_category"), "#" %>
+        </li>
+        <li>
+          <%= link_to t("navbar.index_category"), "#" %>
+        </li>
+      </ul>
+    </li>
+    <li class="panel-group">
+      <a data-toggle="collapse" href="#course">
+        <span class="glyphicon glyphicon-book" aria-hidden="true"></span>  
+        <%= t :genre %>  
+      </a>
+      <ul id="course" class="panel-collapse collapse">
+        <li>
+          <%= link_to t("navbar.new_genre"), "#" %>
+        </li>
+        <li>
+          <%= link_to t("index"), "#" %>
+        </li>
+      </ul>
+    </li>
+    <li class="panel-group">
+      <a data-toggle="collapse" href="#account">
+        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>  
+        <%= t :account %>
+      </a>
+      <ul id="account" class="panel-collapse collapse">
+        <li>
+          <%= link_to t("navbar.logout"), destroy_user_session_path, 
+            method: :delete %>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
