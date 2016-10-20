@@ -1,0 +1,18 @@
+<table width="100%">
+  <tr>
+    <th width="70%"><%= :name %></th>
+    <th width="30%"><%= t :action %></th>
+  </tr>
+  <% @genres.each do |genre| %>
+    <tr>
+      <td><%= link_to genre.name, "#" %></td>
+      <td>
+        <%= link_to t("edit"), edit_admin_genre_path(genre), 
+          class: "btn btn-primary" %>
+        <%= link_to t("delete"), admin_genre_path(genre),
+          method: :delete, data: {confirm: t("flash.confirm")}, 
+          class: "btn btn-danger" %>
+      </td>
+    </tr>
+  <% end %>
+</table>

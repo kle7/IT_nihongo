@@ -14,3 +14,13 @@ en:
   edit: "Edit"
   save: "Save"
   log_in: "Log In"
+  not_have_permission: "You dont have permission to do this"
+  flash:
+    confirm: "Are you sure"
+    fail: "Some thing went wrong"
+  genre:
+    deleted: "Genre have been deleted"
+    updated: "Genre have been updated"
+  new: "New"
+  genre:
+    success: "Create succesfully"
