@@ -25,25 +25,25 @@
     <li class="panel-group">
       <a data-toggle="collapse" href="#category">
         <span class="glyphicon glyphicon-file" aria-hidden="true"></span>  
-        <%= t "categories.category" %>
+        <%= t :genre_name %>
       </a>
       <ul id="category" class="panel-collapse collapse">
         <li>
-          <%= link_to t("navbar.new_category"), "#" %>
+          <%= link_to t(:new_genre), new_admin_genre_path %>
         </li>
         <li>
-          <%= link_to t("navbar.index_category"), "#" %>
+          <%= link_to t("index"), admin_genres_path %>
         </li>
       </ul>
     </li>
     <li class="panel-group">
       <a data-toggle="collapse" href="#course">
         <span class="glyphicon glyphicon-book" aria-hidden="true"></span>  
-        <%= t :genre %>  
+        <%= t :movie %>  
       </a>
       <ul id="course" class="panel-collapse collapse">
         <li>
-          <%= link_to t("navbar.new_genre"), "#" %>
+          <%= link_to t("navbar.new_movie"), "#" %>
         </li>
         <li>
           <%= link_to t("index"), "#" %>
