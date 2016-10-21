@@ -1,0 +1,23 @@
+
+<div class="page-header">
+  <section class="col-sm-4">
+    <div>
+      <%= image_tag @movie.image %>
+    </div>
+    <div>
+      <h1><%= @movie.name %></h1>
+    </div>
+  </section>    
+  <section class="user_info col-sm-4">
+    <h1>Content</h1>
+    <h3><%= @movie.content.html_safe %></h3>
+    <h1>Genre</h1>
+    <h3>
+      <% @movie.movie_genres.each do |movie_genre|  %>
+        <%= movie_genre.genre.name %>
+      <% end %>
+    </h3>
+  </section>
+  <div></div>
+</div>
+

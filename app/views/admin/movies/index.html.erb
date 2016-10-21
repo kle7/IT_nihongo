@@ -1,0 +1,18 @@
+<table width="100%">
+  <tr>
+    <th width="70%"><%= :name %></th>
+    <th width="30%"><%= t :action %></th>
+  </tr>
+  <% @movies.each do |movie| %>
+    <tr>
+      <td><%= link_to movie.name, admin_movie_path(movie) %></td>
+      <td>
+        <%= link_to t("edit"), edit_admin_movie_path(movie), 
+          class: "btn btn-primary" %>
+        <%= link_to t("delete"), admin_movie_path(movie),
+          method: :delete, data: {confirm: t("flash.confirm")}, 
+          class: "btn btn-danger" %>
+      </td>
+    </tr>
+  <% end %>
+</table>
