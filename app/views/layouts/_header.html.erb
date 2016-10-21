@@ -15,6 +15,9 @@
             <%= link_to t("users.edit"), edit_user_registration_path %>
           </li>
           <li>
+            <%= link_to t("users.profile"), user_path(current_user) %>
+          </li>
+          <li>
             <%= link_to t("users.logout"), destroy_user_session_path,
               method: :delete %>
           </li>

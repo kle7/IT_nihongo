@@ -1,4 +1,4 @@
-class Rate < ActiveRecord::Base
+class Rate < ApplicationRecord
   belongs_to :movie
   belongs_to :user
 end

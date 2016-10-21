@@ -1,4 +1,4 @@
-class MovieActor < ActiveRecord::Base
+class MovieActor < ApplicationRecord
   belongs_to :movie
   belongs_to :actor
 end
