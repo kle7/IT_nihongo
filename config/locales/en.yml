@@ -10,6 +10,7 @@ en:
     login: "Login"
     logout: "Log out"
     signup: "Sign up"
+    profile: "Profile"
   sign_up: "Sign Up"
   edit: "Edit"
   save: "Save"
@@ -24,3 +25,6 @@ en:
   new: "New"
   genre:
     success: "Create succesfully"
+  movie:
+    deleted: "Movie have been deleted"
+    created: "Movie have been created"

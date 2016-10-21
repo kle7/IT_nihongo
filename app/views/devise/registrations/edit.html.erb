@@ -21,6 +21,16 @@
     </div>
 
     <div class="field">
+      <%= f.label :age %>
+      <%= f.number_field :age, autofocus: true, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :phone_number %>
+      <%= f.number_field :phone_number, autofocus: true, class: "form-control" %>
+    </div>
+
+    <div class="field">
       <%= f.label :password %>
       <%= f.password_field :password, class: "form-control" %>
     </div>
@@ -33,6 +43,12 @@
     <div class="field">
       <%= f.label :current_password %>
       <%= f.password_field :current_password, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :avatar %>
+      <%= f.file_field :avatar, class: "form-control" %>
+      <%= f.hidden_field :avatar_cache %>
     </div>
 
     <div class="actions">

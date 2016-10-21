@@ -1,5 +1,4 @@
 class Admin::GenresController < Admin::BaseController
-  before_action :verify_admin 
   before_action :find_genre, only: [:destroy, :edit]
 
   def index
