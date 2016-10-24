@@ -1,0 +1,72 @@
+.play_icon{display: block; margin: -52px 0 0 20%; padding-right: 5%; opacity: 0.95; text-align: center; width: 60%; z-index: 1000;
+}
+.masthead{float:left;height:100px;}
+#header_ad_tle {font-size: 9px; margin-bottom: 0; margin-top: 0;padding-bottom: 0px;
+}
+#showcommentbutton {width: 100%; text-align: center; border:1px #000 solid; background-color:#64A2CF; padding: 0 0 5px 0;}
+#showcommentbutton:hover { cursor: pointer; cursor: hand;}
+#showcomments span{font-weight: bold; color: #fff;}
+#inkmob-header .mob-head-ads {  
+ margin-bottom: 0; margin-left: auto; margin-right: auto; margin-top: 0px; padding-bottom: 0px; text-align: center;
+ }
+  @media only screen and (min-width: 921px) {
+   #inkmob-header .mob-head-ads {
+    display: none;
+   }
+         #inkmob-header .inkmob-nav > li > a.cls-ndtv {
+           display: none;  
+         }
+  }
+.taboola_below_main_column_sc, .taboola_below_main_column_organic_mix{width:48%!important;}
+@media (max-width:768px){
+ .taboola_below_main_column_organic_mix{width:auto!important;}
+ .taboola_below_main_column_sc{width:auto!important;}
+}
+.social-share{z-index:2;}
+.mar0{margin:0 !important;}
+#inkmob-header .inkmob-subnav{ min-height: 280px !important;}
+.commentsno { background-image: url("../images/icon_comment.png"); background-position: right 2px; background-repeat: no-repeat; display: block; float: right; padding: 0 25px 5px 0;
+}
+.ndmv-footer-logo{ background:url(../images/movies_logo.png) no-repeat !important; height: 90px !important; }
+.ndmv-logo { padding: 0px 0 !important;}
+#inkmob-header .inkmob-mobbrand span { margin:0; padding:0;} #inkmob-header .inkmob-mobbrand span.blue { color:#0ea7cf;} #inkmob-header .inkmob-mobbrand span.green { color:#03bb50;} #inkmob-header .inkmob-mobbrand span.yellow { color:#ffb903} #inkmob-header .inkmob-mobbrand span.orenge { color:#fe6403;} #inkmob-header .inkmob-mobbrand span.red { color:#fb0303;} #inkmob-header .inkmob-mobbrand span.pink { color:#fb036f;}
+.ndmv-logobanner-component {padding: 18px 0 0 !important;}
+.ndmv-celeb-gallery {width:100% !important; min-height: 47px !important;}
+.wap-logo{width:135px;}
+#inkmob-header .inkmob-mobbrand { margin-left: 0px !important;}
+#search_text_m{ width:120px;} 
+
+.ndmv-celeb-tweets ul li .ndmv-common-img-wrapper { width: 48px!important; }
+.heart-arrow { background:url(../images/emoticons.png) -84px -13px no-repeat!important; height: 54px!important; }
+.star-war{ background: url(../images/emoticons.png) -305px -135px no-repeat!important; width: 85px!important;}
+.ouch{ background:url(../images/emoticons.png) -289px -80px no-repeat; width: 50px; height: 54px; }
+.extra_rhs_ad { padding-bottom:40px; }
+.thumbs-up{ background:url(../images/emoticons.png) -154px -11px no-repeat; width: 50px; height: 56px; }
+#rhs_ad { display: none; }
+@media only screen and (min-width: 920px) { #rhs_ad { display: block !important; } }
+@media only screen and (min-width: 520px) { #showcommentbutton { display: none !important; } }
+.ndmv-inner-ad-wrapper{ margin: 45px auto 10px !important; }
+.ndmv-fb-likes , .ndmv-other-ads{ margin: 0 auto 0px !important; }
+.trc_rbox_outer{margin-left: 0 !important;}
+.twitter-tweet.twitter-tweet-rendered { margin: 0 auto !important; }
+.intro-center-blk .ndmv-banner-title {  height: 195px !important; }
+.ndmv-movie-infocus {  margin: 0 0 20px !important; }
+.ndmv-movie-review {   margin: 30px 0 0 !important;     }
+
+.ndmv-logobanner {
+    overflow: visible !important;
+}
+.ndmv-right-wrapper.col-md-4 {
+      overflow: visible !important;
+   
+}
+.fullContent img {
+    display: block;
+    margin: 0 auto;
+}
+@media only screen and (max-width: 921px) {
+  #inkmob-header .inkmob-nav > li > a.web-ndtv {
+           display: none;  
+         }
+  }
+.inner-bg { background-position: 0 4px !important; }

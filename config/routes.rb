@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :movies
   end 
   resources :users
+  resources :movies
   root "static_pages#home"
   get "about" => "static_pages#about"  
 end
