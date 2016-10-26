@@ -1,5 +1,5 @@
 class Admin::GenresController < Admin::BaseController
-  before_action :find_genre, only: [:destroy, :edit]
+  before_action :find_genre, only: [:destroy, :edit, :update]
 
   def index
     @genres = Genre.all

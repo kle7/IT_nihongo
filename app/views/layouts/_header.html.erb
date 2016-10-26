@@ -1,4 +1,4 @@
-<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+<!-- <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <%= link_to root_path do %>
@@ -33,3 +33,129 @@
     </div>
   </div>
 </nav>
+ -->
+ <script type="text/javascript" src="http://movies.ndtv.com/static/js/ndtv.min.js?v=20160928"></script>
+ <body class="inner-bg" onload="loaded();">
+      <header id="inkmob-header" class="inkmob-header">
+         <div class="ndmv-topnav-component">
+            <div class="container">
+              <div class="row">
+                <% if user_signed_in? %> 
+                  <nav class="ndmv-top-navigation">
+                    <%= link_to t("users.logout"), destroy_user_session_path,
+                      method: :delete %>
+                  </nav>
+                  <nav class="ndmv-top-navigation">
+                    <%= link_to t("users.profile"), user_path(current_user) %>
+                  </nav>
+                  <nav class="ndmv-top-navigation">
+                    <%= link_to t("users.edit"), edit_user_registration_path %>
+                  </nav>
+                <% else %>
+                  <nav class="ndmv-top-navigation">
+                    <%= link_to t("users.signup"), new_user_registration_path %>
+                  </nav>
+                  <nav class="ndmv-top-navigation">
+                    <%= link_to t("users.login"), new_user_session_path %>
+                  </nav>
+                <% end %>
+                <nav class="ndmv-top-navigation">
+                  <%= link_to t("static_pages.about"), about_path %>
+                </nav>
+              </div>
+            </div>
+         </div>
+         <div class="ndmv-logobanner-component">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-3 col-sm-3">
+                     <div class="ndmv-logo"><img alt="NDTV Movies" src="/assets/movies_logo.png" /></a></div>
+                  </div>
+                  <div class="col-md-9 col-sm-9" >
+                     <div class="ndmv-logobanner" id="header_ad" style='height:100px;'>
+                        <div id='div-gpt-ad-1470723615614-0' style='height:90px; width:728px;'>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4 col-sm-4">
+                     <nav class="ndmv-logosocial">
+                        <a href="#" class="ndmv-social-icons icon-facebook"></a>
+                        <a href="#" class="ndmv-social-icons icon-twitter"></a>
+                        <a class="ndmv-social-icons icon-feed" href="#"></a>
+                    </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="ndmv-primary-menu">
+            <div class="container">
+               <div class="row ndmv-special-nav">
+                  <div class="inkmob-mobnav">
+                     <div id="inkmob-toggle" type="button" class="inkmob-toggle">
+                        <span class="icon-bar"></span><span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </div>
+                     <a href="http://movies.ndtv.com/" class="inkmob-mobbrand">
+                        <img class="wap-logo" src='http://movies.ndtv.com/static/images/wap_logo.png'/></a>
+                     <div class="ndmv-search-wrap">
+                        <form autocomplete="on" onsubmit="return searchMe('mobile');"><input name="qm" id="search_text_m" type="text" placeholder="Search..."><i class="icon-search" onclick="javascript:searchMe('mobile');"></i></form>
+                     </div>
+                  </div>
+                  <div class="col-xs-12">
+                     <div id="inkmob-nav-wrapper" class="inkmob-nav-wrapper"></div>
+                     <div id="inkmob-nav-inner" class="inkmob-nav-inner">
+                        <div id="scroller">
+                           <ul id="inkmob-nav" class="inkmob-nav">
+                              <a href="#" class="inkmob-arrow"></a><a class="icon-home-outline" href="http://localhost:3000">Home</a>
+                              <li>
+                                 <a class="active" href="#">Reviews</a>
+                                 
+                              </li>
+                              <li>
+                                 <a class="" href="#">FUNNY</a>
+                                 
+                              </li>
+                              <li>
+                                 <a class="" href="#">ACTION</a>
+                                 
+                              </li>
+                              <li>
+                                 <a class="" href="#">HISTORY</a>
+    
+                              </li>
+                              <li>
+                                 <a class="" href="#">DRAMA</a>
+                                 
+                              </li>
+                              <li>
+                                 <a class="" href="#">EROTIC</a>
+                                 
+                              </li>
+                              <li>
+                                 <a class="" href="#">MUSIC</a>
+                                 
+                              </li>
+                              <li>
+                                 <a class="" href="#">FANTASY</a>
+                                 
+                              </li>
+                              <li><a  class="cls-ndtv" href="#" >REVIEW MOVIES</a></li>
+                              <!-- <li><a  class="" href="http://movies.ndtv.com/cannes" >Cannes</a></li><li><a class="web-ndtv" href="http://movies.ndtv.com/oscars">Oscars</a></li> -->
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xs-4">
+                     <div class="ndmv-searchblock">
+                        <div class="ndmv-defaultsearch">
+                           <div class="ndmv-searchbox">
+                              <form action="#" autocomplete="on" onsubmit="return searchMe();"><i class="icon-search" onclick="javascript:searchMe();" style="cursor:pointer;" ></i><input name="q" id="search_text" type="text" required placeholder="Search..." class="ndmv-searchfield form-control" /></form>
+                           </div>
+                           <div class="dropdown"><span class="ndmv-popularlinks"><label>&nbsp;</label></span></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </header>

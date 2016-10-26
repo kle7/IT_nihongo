@@ -1,13 +1,284 @@
-<% provide :title, t("static_pages.title") %>
-<div class="jumbotron text-center">
-  <div class="header-content-inner">
-    <h1><%= t "static_pages.movie_review" %></h1>
-    <hr>
-    <h3>
-      <%= t "static_pages.intro" %>
-    </h3>
-    <div class="btn btn-danger btn-lg">
-      <%= link_to t("static_pages.login"), new_user_session_path %>
-    </div>
-  </div>
+<script type="text/javascript" src="http://movies.ndtv.com/static/js/ndtv.min.js?v=20160928"></script>
+<div class="container ndmv-main-container">
+   <div class="row">
+      <div class="ndmv-left-wrapper col-md-12 col-sm-12">
+         <div class="ndmv-celeb-filter-wrapper">
+            <ul class="ndmv-celeb-filter">
+               <li ><a  href="#">a</a></li>
+               <li ><a  href="#">b</a></li>
+               <li ><a  href="#">c</a></li>
+               <li ><a  href="#">d</a></li>
+               <li ><a  href="#">e</a></li>
+               <li ><a  href="#">f</a></li>
+               <li ><a  href="#">g</a></li>
+               <li ><a  href="#">h</a></li>
+               <li ><a  href="#">i</a></li>
+               <li ><a  href="#">j</a></li>
+               <li ><a  href="#">k</a></li>
+               <li ><a  href="#">l</a></li>
+               <li ><a  href="#">m</a></li>
+               <li ><a  href="#">n</a></li>
+               <li ><a  href="#">o</a></li>
+               <li ><a  href="#">p</a></li>
+               <li ><a  href="#">q</a></li>
+               <li ><a  href="#">r</a></li>
+               <li ><a  href="#">s</a></li>
+               <li ><a  href="#">t</a></li>
+               <li ><a  href="#">u</a></li>
+               <li ><a  href="#">v</a></li>
+               <li ><a  href="#">w</a></li>
+               <li ><a  href="#">x</a></li>
+               <li ><a  href="#">y</a></li>
+               <li ><a  href="#">z</a></li>
+            </ul>
+         </div>
+         <ul class="ndmv-celeb-list">
+            <li>
+               <div class="ndmv-celeb-blk ndmv-greybg">
+                  <div class="ndmv-common-img-wrapper"><%= image_tag @movie.image %></div>
+                  <div class="ndmv-review-title">
+                     <h4><%= link_to @movie.name, movie_path(@movie.id) %></a></h4>
+                     <h5>Hindi / 
+                        <% @movie.genres.each do |genre| %>
+                        <%= genre.name %>
+                        <% end %>
+                     </h5>
+                     <div class="ndmv-movie-rating"><span class="rating-full"></span><span class="rating-full"></span><span class="rating-half"></span><span class="rating-null"></span><span class="rating-null"></span></div>
+                     <h6><span>Starring:</span>Soha Ali Khan, Vir Das, Lakha Lakhwinder Singh, Pritam Kagne</h6>
+                     <h6><span>Director:</span>Shivaji Lotan Patil</h6>
+                  </div>
+               </div>
+            </li>
+            <li>
+               <div class="ndmv-celeb-blk ndmv-greybg">
+                  <div class="ndmv-common-img-wrapper"><%= image_tag @movie.image %></div>
+                  <div class="ndmv-review-title">
+                     <h4><%= link_to @movie.name, movie_path(@movie.id) %></a></h4>
+                     <h5>Hindi / 
+                        <% @movie.genres.each do |genre| %>
+                        <%= genre.name %>
+                        <% end %>
+                     </h5>
+                     <div class="ndmv-movie-rating"><span class="rating-full"></span><span class="rating-full"></span><span class="rating-half"></span><span class="rating-null"></span><span class="rating-null"></span></div>
+                     <h6><span>Starring:</span>Soha Ali Khan, Vir Das, Lakha Lakhwinder Singh, Pritam Kagne</h6>
+                     <h6><span>Director:</span>Shivaji Lotan Patil</h6>
+                  </div>
+               </div>
+            </li>
+            <li>
+               <div class="ndmv-celeb-blk ndmv-greybg">
+                  <div class="ndmv-common-img-wrapper"><%= image_tag @movie.image %></div>
+                  <div class="ndmv-review-title">
+                     <h4><%= link_to @movie.name, movie_path(@movie.id) %></a></h4>
+                     <h5>Hindi / 
+                        <% @movie.genres.each do |genre| %>
+                        <%= genre.name %>
+                        <% end %>
+                     </h5>
+                     <div class="ndmv-movie-rating"><span class="rating-full"></span><span class="rating-full"></span><span class="rating-half"></span><span class="rating-null"></span><span class="rating-null"></span></div>
+                     <h6><span>Starring:</span>Soha Ali Khan, Vir Das, Lakha Lakhwinder Singh, Pritam Kagne</h6>
+                     <h6><span>Director:</span>Shivaji Lotan Patil</h6>
+                  </div>
+               </div>
+            </li>
+            <li>
+               <div class="ndmv-celeb-blk ndmv-greybg">
+                  <div class="ndmv-common-img-wrapper"><%= image_tag @movie.image %></div>
+                  <div class="ndmv-review-title">
+                     <h4><%= link_to @movie.name, movie_path(@movie.id) %></a></h4>
+                     <h5>Hindi / 
+                        <% @movie.genres.each do |genre| %>
+                        <%= genre.name %>
+                        <% end %>
+                     </h5>
+                     <div class="ndmv-movie-rating"><span class="rating-full"></span><span class="rating-full"></span><span class="rating-half"></span><span class="rating-null"></span><span class="rating-null"></span></div>
+                     <h6><span>Starring:</span>Soha Ali Khan, Vir Das, Lakha Lakhwinder Singh, Pritam Kagne</h6>
+                     <h6><span>Director:</span>Shivaji Lotan Patil</h6>
+                  </div>
+               </div>
+            </li>
+            <li>
+               <div class="ndmv-celeb-blk ndmv-greybg">
+                  <div class="ndmv-common-img-wrapper"><%= image_tag @movie.image %></div>
+                  <div class="ndmv-review-title">
+                     <h4><%= link_to @movie.name, movie_path(@movie.id) %></a></h4>
+                     <h5>Hindi / 
+                        <% @movie.genres.each do |genre| %>
+                        <%= genre.name %>
+                        <% end %>
+                     </h5>
+                     <div class="ndmv-movie-rating"><span class="rating-full"></span><span class="rating-full"></span><span class="rating-half"></span><span class="rating-null"></span><span class="rating-null"></span></div>
+                     <h6><span>Starring:</span>Soha Ali Khan, Vir Das, Lakha Lakhwinder Singh, Pritam Kagne</h6>
+                     <h6><span>Director:</span>Shivaji Lotan Patil</h6>
+                  </div>
+               </div>
+            </li>
+            <li>
+               <div class="ndmv-celeb-blk ndmv-greybg">
+                  <div class="ndmv-common-img-wrapper"><%= image_tag @movie.image %></div>
+                  <div class="ndmv-review-title">
+                     <h4><%= link_to @movie.name, movie_path(@movie.id) %></a></h4>
+                     <h5>Hindi / 
+                        <% @movie.genres.each do |genre| %>
+                        <%= genre.name %>
+                        <% end %>
+                     </h5>
+                     <div class="ndmv-movie-rating"><span class="rating-full"></span><span class="rating-full"></span><span class="rating-half"></span><span class="rating-null"></span><span class="rating-null"></span></div>
+                     <h6><span>Starring:</span>Soha Ali Khan, Vir Das, Lakha Lakhwinder Singh, Pritam Kagne</h6>
+                     <h6><span>Director:</span>Shivaji Lotan Patil</h6>
+                  </div>
+               </div>
+            </li>
+            <li>
+               <div class="ndmv-celeb-blk ndmv-greybg">
+                  <div class="ndmv-common-img-wrapper"><%= image_tag @movie.image %></div>
+                  <div class="ndmv-review-title">
+                     <h4><%= link_to @movie.name, movie_path(@movie.id) %></a></h4>
+                     <h5>Hindi / 
+                        <% @movie.genres.each do |genre| %>
+                        <%= genre.name %>
+                        <% end %>
+                     </h5>
+                     <div class="ndmv-movie-rating"><span class="rating-full"></span><span class="rating-full"></span><span class="rating-half"></span><span class="rating-null"></span><span class="rating-null"></span></div>
+                     <h6><span>Starring:</span>Soha Ali Khan, Vir Das, Lakha Lakhwinder Singh, Pritam Kagne</h6>
+                     <h6><span>Director:</span>Shivaji Lotan Patil</h6>
+                  </div>
+               </div>
+            </li>
+            <li>
+               <div class="ndmv-celeb-blk ndmv-greybg">
+                  <div class="ndmv-common-img-wrapper"><%= image_tag @movie.image %></div>
+                  <div class="ndmv-review-title">
+                     <h4><%= link_to @movie.name, movie_path(@movie.id) %></a></h4>
+                     <h5>Hindi / 
+                        <% @movie.genres.each do |genre| %>
+                        <%= genre.name %>
+                        <% end %>
+                     </h5>
+                     <div class="ndmv-movie-rating"><span class="rating-full"></span><span class="rating-full"></span><span class="rating-half"></span><span class="rating-null"></span><span class="rating-null"></span></div>
+                     <h6><span>Starring:</span>Soha Ali Khan, Vir Das, Lakha Lakhwinder Singh, Pritam Kagne</h6>
+                     <h6><span>Director:</span>Shivaji Lotan Patil</h6>
+                  </div>
+               </div>
+            </li>
+            <li>
+               <div class="ndmv-celeb-blk ndmv-greybg">
+                  <div class="ndmv-common-img-wrapper"><%= image_tag @movie.image %></div>
+                  <div class="ndmv-review-title">
+                     <h4><%= link_to @movie.name, movie_path(@movie.id) %></a></h4>
+                     <h5>Hindi / 
+                        <% @movie.genres.each do |genre| %>
+                        <%= genre.name %>
+                        <% end %>
+                     </h5>
+                     <div class="ndmv-movie-rating"><span class="rating-full"></span><span class="rating-full"></span><span class="rating-half"></span><span class="rating-null"></span><span class="rating-null"></span></div>
+                     <h6><span>Starring:</span>Soha Ali Khan, Vir Das, Lakha Lakhwinder Singh, Pritam Kagne</h6>
+                     <h6><span>Director:</span>Shivaji Lotan Patil</h6>
+                  </div>
+               </div>
+            </li>
+            <li>
+               <div class="ndmv-celeb-blk ndmv-greybg">
+                  <div class="ndmv-common-img-wrapper"><%= image_tag @movie.image %></div>
+                  <div class="ndmv-review-title">
+                     <h4><%= link_to @movie.name, movie_path(@movie.id) %></a></h4>
+                     <h5>Hindi / 
+                        <% @movie.genres.each do |genre| %>
+                        <%= genre.name %>
+                        <% end %>
+                     </h5>
+                     <div class="ndmv-movie-rating"><span class="rating-full"></span><span class="rating-full"></span><span class="rating-half"></span><span class="rating-null"></span><span class="rating-null"></span></div>
+                     <h6><span>Starring:</span>Soha Ali Khan, Vir Das, Lakha Lakhwinder Singh, Pritam Kagne</h6>
+                     <h6><span>Director:</span>Shivaji Lotan Patil</h6>
+                  </div>
+               </div>
+            </li>
+            <li>
+               <div class="ndmv-celeb-blk ndmv-greybg">
+                  <div class="ndmv-common-img-wrapper"><%= image_tag @movie.image %></div>
+                  <div class="ndmv-review-title">
+                     <h4><%= link_to @movie.name, movie_path(@movie.id) %></a></h4>
+                     <h5>Hindi / 
+                        <% @movie.genres.each do |genre| %>
+                        <%= genre.name %>
+                        <% end %>
+                     </h5>
+                     <div class="ndmv-movie-rating"><span class="rating-full"></span><span class="rating-full"></span><span class="rating-half"></span><span class="rating-null"></span><span class="rating-null"></span></div>
+                     <h6><span>Starring:</span>Soha Ali Khan, Vir Das, Lakha Lakhwinder Singh, Pritam Kagne</h6>
+                     <h6><span>Director:</span>Shivaji Lotan Patil</h6>
+                  </div>
+               </div>
+            </li>
+            <li>
+               <div class="ndmv-celeb-blk ndmv-greybg">
+                  <div class="ndmv-common-img-wrapper"><%= image_tag @movie.image %></div>
+                  <div class="ndmv-review-title">
+                     <h4><%= link_to @movie.name, movie_path(@movie.id) %></a></h4>
+                     <h5>Hindi / 
+                        <% @movie.genres.each do |genre| %>
+                        <%= genre.name %>
+                        <% end %>
+                     </h5>
+                     <div class="ndmv-movie-rating"><span class="rating-full"></span><span class="rating-full"></span><span class="rating-half"></span><span class="rating-null"></span><span class="rating-null"></span></div>
+                     <h6><span>Starring:</span>Soha Ali Khan, Vir Das, Lakha Lakhwinder Singh, Pritam Kagne</h6>
+                     <h6><span>Director:</span>Shivaji Lotan Patil</h6>
+                  </div>
+               </div>
+            </li>
+         </ul>
+         <div class="ndmv-pagination">
+            <a class='active' href='#' title='Page 1'>1</a>
+            <a  rel='next' href='#' title='Page 2'>2</a>
+            <a href='#' title='Page 3'>3</a>
+            <a href='#' title='Page 4'>4</a>
+            <a href='#' title='Page 5'>5</a>
+            <a href='#' title='Page 6'> ... </a>
+            <a class='pag-next' href='#' title='Page 2'>Next</a>
+         </div>
+      </div>
+      <div class="ndmv-right-wrapper col-md-4 col-sm-4" >
+         <div class="ndmv-inner-ad-wrapper">
+            <div class="ndmv-common-img-wrapper">
+               <div class="ndmv-inner-ad-wrapper">
+                  <div class="ndmv-common-img-wrapper">
+                     <div id="movies_right_side_ad100_1" style="width: 300px;position:relative;margin-top: 10px;">
+                        <div id='div-gpt-ad-1470723615614-2' style='height:100px; width:300px;'>
+                           <script>if(screen.width > 767){googletag.cmd.push(function() { googletag.display('div-gpt-ad-1470723615614-2'); });}</script>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div id="taboola-right-rail-thumbnails-3rd"></div>
+         <script type="text/javascript">window._taboola = window._taboola || []; _taboola.push({mode: 'vertical-a',container: 'taboola-right-rail-thumbnails-3rd',placement: 'Right Rail Thumbnails 3rd - Movies',target_type: 'mix'});</script>
+         <div style="padding-top:20px"></div>
+         <div class="ndmv-ad-wrapper">
+            <div class="ndmv-common-img-wrapper">
+               <div id='div-gpt-ad-1470723615614-4' style='height:250px; width:300px;'>
+                  <script>if(screen.width > 767){googletag.cmd.push(function() { googletag.display('div-gpt-ad-1470723615614-4'); });}</script>
+               </div>
+               <h6>Advertisement</h6>
+            </div>
+         </div>
+         <div id="crowdy-vert" style="margin-bottom: 25px;">
+            <div data-crowdynews-widget="NDTVMovies_ndtvmovies-vertical" >
+               <script src="http://widget.crowdynews.com/NDTVMovies_ndtvmovies-vertical.js" async="true"></script>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div id="footer-ads" style="box-sizing: border-box;float: left;margin: 0 0 20px;width: 100%;">
+      <div style=" margin: 0px auto; min-height: 90px; min-width: 970px;">
+         <div style=" text-align: center; width:100%;">
+            <div id='div-gpt-ad-1470723615614-3'>
+               <script>if(screen.width > 767){googletag.cmd.push(function() { googletag.display('div-gpt-ad-1470723615614-3'); });}</script>
+            </div>
+         </div>
+      </div>
+   </div>
 </div>
+</body>
+<!-- Mirrored from movies.ndtv.com/movie-reviews/bollywood by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 22 Oct 2016 07:50:26 GMT -->
+</html>
+

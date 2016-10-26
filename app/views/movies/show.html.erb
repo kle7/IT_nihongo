@@ -1,0 +1,70 @@
+<div class="container"></div>
+<script type="text/javascript" src="http://movies.ndtv.com/static/js/ndtv.min.js?v=20160928"></script>
+<section class="ndmv-celeb-detail-breadcrumb">
+   <div class="container">
+      <div class="ndmv-celeb-detail-bread ndmv-review-breadcrumb">
+         <a href="#">Home</a><a href="#">Movie Reviews</a>
+         <h1 itemprop="headline" class='item'><%= @movie.name %></h1>
+         <div class="ndmv-datetime reviewer"><span><a class="fn" href="#">Admin</a> &nbsp;&nbsp;|  
+            <span class='dtreviewed'>Friday, October 21, 2016</span></span>
+         </div>
+      </div>
+      <div class="ndmv-review-breadcrumb-rating" >
+         <span class="rating" style='display:none;'>2.5</span>
+         <h4>Rating:</h4>
+         <div class="ndmv-movie-rating"><span class="rating-full"></span><span class="rating-full"></span><span class="rating-half"></span><span class="rating-null"></span><span class="rating-null"></span></div>
+      </div>
+   </div>
+</section>
+<div class="container ndmv-main-container">
+   <div class="row">
+      <div class="ndmv-left-wrapper col-md-12 col-sm-12">
+         <style type="text/css">
+            .ndmv-review-detail img{
+            max-width: 100%;min-width: 100%;
+            }
+         </style>
+         <div class="row ndmv-review-detail-row">
+            <div class="col-md-10">
+               <div class="ndmv-common-img-wrapper">
+                  <%= image_tag @movie.image %>
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="ndmv-celeb-profile ndmv-movie-cast">
+                  <ul>
+                     <li>
+                        <div class="ndmv-celeb-label">Genre:</div>
+                        <div class="ndmv-celeb-detail">
+                           <% @movie.genres.each do |genre| %>
+                           <%= genre.name %>
+                           <% end %>
+                        </div>
+                     </li>
+                     <li>
+                        <div class="ndmv-celeb-label">Cast:</div>
+                        <div class="ndmv-celeb-detail">Soha Ali Khan, Vir Das, Lakha Lakhwinder Singh, Pritam Kagne</div>
+                     </li>
+                     <li>
+                        <div class="ndmv-celeb-label">Year:</div>
+                        <div class="ndmv-celeb-detail">2012</div>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <div class="row ndmv-celeb-detail-info ndmv-review-detail">
+            <div class="col-md-16">
+               <p>
+                  <b>REVIEW CONTENT</b>
+                  <p>
+                    <%= @movie.content.html_safe %>
+                  </p>
+            </div>
+         </div>
+         <!--  adblocker taboola -->
+      </div>
+      <div class="ndmv-right-wrapper col-md-4 col-sm-4" >
+      </div>
+   </div>
+</div>
