@@ -1,0 +1,20 @@
+<table width="100%">
+  <tr>
+    <th><%= :name %></th>
+    <th><%= :email %></th>
+    <th><%= t('customer.last_sign_in_at') %></th>
+    <th><%= t :action %></th>
+  </tr>
+  <% @customers.each do |customer| %>
+    <tr>
+      <td><%= link_to customer.user_name, admin_customer_path(customer) %></td>
+      <td><%= link_to customer.email, admin_customer_path(customer) %></td>
+      <td><%= link_to customer.last_sign_in_at, admin_customer_path(customer) %></td>
+      <td>
+        <%= link_to t("delete"),admin_customer_path(customer),
+          method: :delete, data: {confirm: t("flash.confirm")}, 
+          class: "btn btn-danger" %>
+      </td>
+    </tr>
+  <% end %>
+</table>

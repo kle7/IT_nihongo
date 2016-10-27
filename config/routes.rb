@@ -5,7 +5,8 @@ Rails.application.routes.draw do
     root "static_pages#home"
     resources :genres
     resources :movies
-  end 
+    resources :customers
+  end
   resources :users
   resources :movies
   root "static_pages#home"
