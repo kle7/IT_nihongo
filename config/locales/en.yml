@@ -28,3 +28,6 @@ en:
   movie:
     deleted: "Movie have been deleted"
     created: "Movie have been created"
+  customer:
+    deleted: "User have been deleted"
+    last_sign_in_at: "Last sign in"
