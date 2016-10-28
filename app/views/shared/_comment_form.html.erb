@@ -1,0 +1,12 @@
+<%= form_for(@comment ||= Comment.new, remote: true) do |f| %>
+  <div class="row comment-form">
+    
+      <%= f.hidden_field :movie_id, value: movie.id %>
+        <%= f.text_area :content, rows: 1, placeholder: 'Add a comment...', class: 'form-control form-margin' %>
+    
+   
+        <%= f.submit "comment", class: "btn btn-primary" %>
+    </div>
+  </div>
+<%end%>
+
