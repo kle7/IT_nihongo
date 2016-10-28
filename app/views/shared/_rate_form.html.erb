@@ -1,0 +1,10 @@
+<div class="rating">
+  <%= form_for @rate do |f| %>
+    <%= f.hidden_field :vote, value: key %>
+    <%= f.hidden_field :movie_id, value: @movie.id %>
+    <%= f.hidden_field :user_id, value:  current_user.id %>
+    <%= button_tag(type: "submit")do %>
+      <span>☆</span>
+    <% end %>
+  <% end %>
+</div>
