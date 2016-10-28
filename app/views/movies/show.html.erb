@@ -59,8 +59,20 @@
                   <b>REVIEW CONTENT</b>
                   <p>
                     <%= @movie.content.html_safe %>
-                  </p>
+                   </p>
+               </p>    
             </div>
+         </div>
+         <div>
+           <div class="clearfix"></div>
+           <div id="comments_<%= @movie.id %>">
+             <% if @movie.comments.any? %>
+               <%= render @movie.comments, movie: @movie %>
+             <%end%>
+           </div>
+           <% if user_signed_in? %>
+             <%= render 'shared/comment_form', movie: @movie %>
+           <% end %>  
          </div>
          <!--  adblocker taboola -->
       </div>

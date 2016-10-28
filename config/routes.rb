@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end 
   resources :users
   resources :movies
+  resources :comments, only: [:create, :destroy]
   root "static_pages#home"
   get "about" => "static_pages#about"  
 end
