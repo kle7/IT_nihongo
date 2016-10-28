@@ -1,0 +1,22 @@
+<%= form_for [:admin, @user] do |f| %>      
+      <div class="field">
+        <%= f.label :user_name %>
+        <%= f.text_field :user_name, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :age %>
+        <%= f.number_field :age, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :phone_number %>
+        <%= f.number_field :phone_number, autofocus: true, class: "form-control" %>
+      </div>
+      <div class="field">
+        <%= f.label :avatar %>
+        <%= f.file_field :avatar, class: "form-control" %>
+        <%= f.hidden_field :avatar_cache %>
+      </div>
+<%= f.submit t("new"), class: "btn btn-primary" %>
+<% end %>
