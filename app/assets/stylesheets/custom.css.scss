@@ -232,3 +232,31 @@ body {
 text-area {
   height: auto;
 }
+
+/* index */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+td {
+  width: 100px;
+}
+.category {
+  select {
+    @extend .form-control;
+  }
+}
+.wrapper {
+  margin-top: 20px;
+  margin-right: 70px;
+  margin-left: 70px;
+}
+#table_wrapper {
+  margin-top: 40px;
+}

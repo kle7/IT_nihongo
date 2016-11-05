@@ -16,6 +16,8 @@ gem "bootsy"
 gem "carrierwave"
 gem "mini_magick"
 gem "font-awesome-sass"
+gem 'kaminari', github: "amatsuda/kaminari", branch: "0-17-stable"
+gem "ransack", github:"activerecord-hackery/ransack", branch:"master"
 
 group :development, :test do
   gem "byebug"

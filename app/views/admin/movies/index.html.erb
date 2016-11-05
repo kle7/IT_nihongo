@@ -1,16 +1,34 @@
-<table width="100%">
+<% provide :title, t("movie.index") %>
+<h3><%= t "movie.index" %></h3>
+<%= search_form_for @search, url: admin_movies_path do |f| %>
+  <%= f.condition_fields do |c| %>
+    <%= render "condition_fields", f: c %>
+  <% end %>
+  <div><%= link_to_add_fields t("movie.add_condition"), 
+    f, :condition %></div>
+  <div class="actions"><%= f.submit t("movie.search"), 
+    class: "btn btn-primary" %></div>
+<% end %>
+
+<table id="table_wrapper">
   <tr>
-    <th width="70%"><%= :name %></th>
-    <th width="30%"><%= t :action %></th>
+    <th><%= sort_link @search, :name, t("table.name") %></th>
+    <th><%= sort_link @search, :movie_genre, t("table.description") %></th>
+    <th><%= t :action %></th>
   </tr>
   <% @movies.each do |movie| %>
     <tr>
       <td><%= link_to movie.name, admin_movie_path(movie) %></td>
       <td>
-        <%= link_to t("edit"), edit_admin_movie_path(movie), 
+        <% movie.genres.each do |genre| %>
+          <%= genre.name %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to t("movie.edit"), edit_admin_movie_path(movie), 
           class: "btn btn-primary" %>
-        <%= link_to t("delete"), admin_movie_path(movie),
-          method: :delete, data: {confirm: t("flash.confirm")}, 
+        <%= link_to t("movie.delete"), admin_movie_path(movie),
+          method: :destroy, data: {confirm: t("flash.confirm")}, 
           class: "btn btn-danger" %>
       </td>
     </tr>
