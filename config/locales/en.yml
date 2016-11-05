@@ -28,3 +28,8 @@ en:
   movie:
     deleted: "Movie have been deleted"
     created: "Movie have been created"
+    index: "Index"
+    search: "Search"
+    add_condition: "Add Condition"
+  remove: "Remove"
+
