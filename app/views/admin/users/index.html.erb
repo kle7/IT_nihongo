@@ -1,20 +1,31 @@
-<table width="100%">
+<% provide :title, t("user.index") %>
+<h3><%= t "user.index" %></h3>
+<%= search_form_for @search, url: admin_users_path do |f| %>
+  <%= f.condition_fields do |c| %>
+    <%= render "condition_fields", f: c %>
+  <% end %>
+  <div><%= link_to_add_fields t("user.add_condition"), 
+    f, :condition %></div>
+  <div class="actions"><%= f.submit t("user.search"), 
+    class: "btn btn-primary" %></div>
+<% end %>
+
+<table id="table_wrapper">
   <tr>
-    <th width="70%"><%= :name %></th>
-    <th width="30%"><%= t :action %></th>
+    <th><%= sort_link @search, :user_name, t("table.name") %></th>
+    <th><%= t :action %></th>
   </tr>
   <% @users.each do |user| %>
     <tr>
-      <th><%= link_to user.user_name, admin_user_path(user) %></th>
-      <th>
-        <%= link_to t("edit"), edit_admin_user_path(user), 
+      <td><%= link_to user.user_name, admin_user_path(user) %></td>
+      <td>
+        <%= link_to t("movie.edit"), edit_admin_user_path(user), 
           class: "btn btn-primary" %>
-        <% unless current_user == user %>
-          <%= link_to t("delete"), admin_user_path(user),
-            method: :delete, data: {confirm: t("flash.confirm")}, 
-            class: "btn btn-danger" %>
-        <% end %>
-      </th>
+        <%= link_to t("movie.delete"), admin_user_path(user),
+          method: :destroy, data: {confirm: t("flash.confirm")}, 
+          class: "btn btn-danger" %>
+      </td>
     </tr>
   <% end %>
 </table>
+<%= paginate @users %>

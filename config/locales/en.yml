@@ -24,11 +24,18 @@ en:
     updated: "Genre have been updated"
   new: "New"
   genre:
+    genre: "Genre"
     success: "Create succesfully"
   movie:
+    movie: "Movie"
     deleted: "Movie have been deleted"
     created: "Movie have been created"
     index: "Index"
+    search: "Search"
+    add_condition: "Add Condition"
+  user: 
+    user: "User"
+    index: "Index User"
     search: "Search"
     add_condition: "Add Condition"
   remove: "Remove"
