@@ -8,7 +8,7 @@ class Admin::MoviesController < Admin::BaseController
   
   def index
     @search = Movie.search params[:q]
-    @movies = @search.result
+    @movies = @search.result.page params[:page]
   end
 
   def create

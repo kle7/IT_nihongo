@@ -1,6 +1,9 @@
 # encoding: utf-8
 
 class MovieImageUploader < CarrierWave::Uploader::Base
+  def default_url(*args)
+    ActionController::Base.helpers.asset_path([version_name, "/assets/logo.jpeg"].compact.join('_'))
+  end
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick

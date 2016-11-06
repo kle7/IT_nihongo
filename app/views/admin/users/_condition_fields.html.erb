@@ -1,0 +1,18 @@
+<div class="field category">
+  <div class="wrapper">
+    <div class="col-md-3">
+      <%= f.attribute_fields do |a| %>
+        <%= a.attribute_select associations: [:category], class: "form-control" %>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <%= f.predicate_select %>
+    </div>
+    <div class="col-md-4">
+      <%= f.value_fields do |v| %>
+        <%= v.text_field :value, class: "form-control" %>
+      <% end %>
+    </div> 
+    <%= link_to t(:remove), "#", id: "remove_fields", class: "btn btn-warning" %>
+  </div>
+</div>
