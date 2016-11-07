@@ -65,14 +65,15 @@
          </div>
          <div>
            <div class="clearfix"></div>
+           <% if user_signed_in? %>
+             <%= render 'shared/comment_form', movie: @movie %>
+           <% end %> 
+           <br/>
            <div id="comments_<%= @movie.id %>">
              <% if @movie.comments.any? %>
                <%= render @movie.comments, movie: @movie %>
              <%end%>
            </div>
-           <% if user_signed_in? %>
-             <%= render 'shared/comment_form', movie: @movie %>
-           <% end %>  
          </div>
          <!--  adblocker taboola -->
       </div>
