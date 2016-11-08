@@ -8,6 +8,10 @@
     <%= f.label :name %>
     <%= f.text_field :name, autofocus: true, class: "form-control" %>
   </div>
+  <div class="form-group">
+    <%= f.label :year %>
+    <%= f.number_field :year, autofocus: true, class: "form-control" %>
+  </div>
   <%= f.label :genre_select %>
   <%= f.collection_check_boxes :genre_ids, @genres, :id, :name do |s| %>
     <div class="checkbox">

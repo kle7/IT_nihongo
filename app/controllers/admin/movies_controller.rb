@@ -48,7 +48,7 @@ class Admin::MoviesController < Admin::BaseController
 
   private
   def movie_params
-    params.require(:movie).permit :name, :image, :content, genre_ids: []
+    params.require(:movie).permit :name, :image, :year, :content, genre_ids: []
   end
 
   def find_movie

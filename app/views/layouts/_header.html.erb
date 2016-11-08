@@ -89,7 +89,7 @@
          </div>
          <div class="ndmv-primary-menu">
             <div class="container">
-               <div class="row ndmv-special-nav">
+               <div class="row ndmv-special-nav" id="head">
                   <div class="inkmob-mobnav">
                      <div id="inkmob-toggle" type="button" class="inkmob-toggle">
                         <span class="icon-bar"></span><span class="icon-bar"></span>
@@ -101,57 +101,51 @@
                         <form autocomplete="on" onsubmit="return searchMe('mobile');"><input name="qm" id="search_text_m" type="text" placeholder="Search..."><i class="icon-search" onclick="javascript:searchMe('mobile');"></i></form>
                      </div>
                   </div>
-                  <div class="col-xs-12">
+                  <div class="col-xs-9">
                      <div id="inkmob-nav-wrapper" class="inkmob-nav-wrapper"></div>
                      <div id="inkmob-nav-inner" class="inkmob-nav-inner">
                         <div id="scroller">
                            <ul id="inkmob-nav" class="inkmob-nav">
                               <a href="#" class="inkmob-arrow"></a><a class="icon-home-outline" href="http://localhost:3000">Home</a>
-                              <li>
-                                 <a class="active" href="#">Reviews</a>
-                                 
-                              </li>
-                              <li>
-                                 <a class="" href="#">FUNNY</a>
-                                 
-                              </li>
-                              <li>
-                                 <a class="" href="#">ACTION</a>
-                                 
-                              </li>
-                              <li>
-                                 <a class="" href="#">HISTORY</a>
-    
-                              </li>
-                              <li>
-                                 <a class="" href="#">DRAMA</a>
-                                 
-                              </li>
-                              <li>
-                                 <a class="" href="#">EROTIC</a>
-                                 
-                              </li>
-                              <li>
-                                 <a class="" href="#">MUSIC</a>
-                                 
-                              </li>
-                              <li>
-                                 <a class="" href="#">FANTASY</a>
-                                 
-                              </li>
+                              <% @genres.each do |genre| %>
+                                <li>
+                                   <%= link_to genre.name, genre_path(genre) %>   
+                                </li>
+                              <% end %>
                               <li><a  class="cls-ndtv" href="#" >REVIEW MOVIES</a></li>
                               <!-- <li><a  class="" href="http://movies.ndtv.com/cannes" >Cannes</a></li><li><a class="web-ndtv" href="http://movies.ndtv.com/oscars">Oscars</a></li> -->
                            </ul>
                         </div>
                      </div>
                   </div>
-                  <div class="col-xs-4">
+                  <div class="col-xs-7">
                      <div class="ndmv-searchblock">
                         <div class="ndmv-defaultsearch">
                            <div class="ndmv-searchbox">
-                              <form action="#" autocomplete="on" onsubmit="return searchMe();"><i class="icon-search" onclick="javascript:searchMe();" style="cursor:pointer;" ></i><input name="q" id="search_text" type="text" required placeholder="Search..." class="ndmv-searchfield form-control" /></form>
+                              <%= search_form_for @search, url: searchs_path,
+                                html: {class: "navbar-form", role: "form"} do |f| %>
+                                <div>
+                                  <div class="col-xs-2">
+                                    <%= f.select :genres_id_eq,
+                                      options_from_collection_for_select(@genres, "id", "name",
+                                      @search.genres_id_eq), {include_blank: "Genre"},
+                                      {class: "form-control"} %>
+                                  </div>
+                                  <div class="col-xs-2 col-xs-offset-2">
+                                    <%= f.select :year_eq, options_for_select([["Year", ""], 1990, 1991, 2000, 2001, 2016]), {}, { class: "form-control" } %>
+                                  </div>
+                                  <div class="col-xs-8 col-xs-offset-1">
+                                    <div class="col-xs-16">
+                                      <%= f.text_field :name_cont, placeholder: "Movie Name",
+                                        class: "form-control" %>
+                                      <%= button_tag(type: "submit", class: "btn btn-default") do %>
+                                        <i class="fa fa-search"></i>
+                                      <% end %>
+                                    </div>
+                                  </div>
+                                </div>
+                              <% end %>
                            </div>
-                           <div class="dropdown"><span class="ndmv-popularlinks"><label>&nbsp;</label></span></div>
                         </div>
                      </div>
                   </div>
