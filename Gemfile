@@ -15,6 +15,7 @@ gem "sdoc",       "~> 0.4.0", group: :doc
 gem "bootsy"
 gem "carrierwave"
 gem "mini_magick"
+gem "font-awesome-rails"
 gem "font-awesome-sass"
 gem 'kaminari', github: "amatsuda/kaminari", branch: "0-17-stable"
 gem "ransack", github:"activerecord-hackery/ransack", branch:"master"

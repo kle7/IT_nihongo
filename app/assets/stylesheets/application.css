@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require bootsy
+ *= require font-awesome
  */
 
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700);
@@ -6204,7 +6205,7 @@ ul.ndmv-forum li p a{
 @media screen and (min-width: 1279px){
   .ndmv-movie-cast{
     margin: 0;
-    min-height: 435px;
+    min-height: 300px;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape){

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :genres
     resources :movies
   end 
+  resources :genres, only: :show
+  resources :searchs, only: :index
   resources :users
   resources :movies
   resources :comments, only: [:create, :destroy]
