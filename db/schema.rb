@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20161020085408) do
   create_table "rates", force: :cascade do |t|
     t.integer  "movie_id"
     t.integer  "user_id"
-    t.integer  "rate"
+    t.integer  "vote"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["movie_id"], name: "index_rates_on_movie_id"

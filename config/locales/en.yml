@@ -39,4 +39,10 @@ en:
     search: "Search"
     add_condition: "Add Condition"
   remove: "Remove"
-
+  rate: "Rate: "
+  rates:
+    one_star: "One star"
+    two_star: "Two star"
+    three_star: "Three star"
+    four_star: "Four star"
+    five_star: "Five star"

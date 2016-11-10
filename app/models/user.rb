@@ -6,4 +6,9 @@ class User < ActiveRecord::Base
   
   enum role: {admin: 1, user: 0}
   mount_uploader :avatar, AvatarUploader
+
+  def has_voted movie
+    movies = self.rates.collect {|r| r.movie}
+    movies.include? movie
+  end
 end
