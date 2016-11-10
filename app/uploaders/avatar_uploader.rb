@@ -1,7 +1,10 @@
 # encoding: utf-8
 
 class AvatarUploader < CarrierWave::Uploader::Base
-
+  
+  def default_url(*args)
+    ActionController::Base.helpers.asset_path([version_name, "/assets/default.jpg"].compact.join('_'))
+  end
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick

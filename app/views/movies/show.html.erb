@@ -167,16 +167,19 @@
          </div>
          <div>
            <div class="clearfix"></div>
-           <P>
-              <b>COMMENT</b>
-           </P>
            <% if user_signed_in? %>
-             <%= render 'shared/comment_form', movie: @movie %>
-             <% unless current_user.has_voted @movie %>
+           <p>
+            <% unless current_user.has_voted @movie %>
+            <b>RATE THIS MOVIE</b>
                <% @votes.each do |key, value| %>
                  <%= render "shared/rate_form", key: key %>
                <% end %>
              <% end %>
+           </p>
+           <P>
+              <b>COMMENT</b>
+           </P>
+             <%= render 'shared/comment_form', movie: @movie %>
            <% end %>
            <div id="comments_<%= @movie.id %>">
              <% if @movie.comments.any? %>

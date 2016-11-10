@@ -1,13 +1,18 @@
 <div class="row a_comment " id="comment_< %comment.id %>" >
    <div class="col-md-11">
-      <b><%= link_to comment.user.user_name, comment.user %></b>
+      <div class="col-md-2" id="image_size">
+         <%= image_tag comment.user.avatar %>
+      </div>
+      <div>
+        <b><%= link_to comment.user.user_name, comment.user %></b>
+      </div>
       <%= comment.content %>
       <br/>
       <div class="comment_time">
          <%= time_ago_in_words(comment.created_at) %>.
       </div>
    </div>
-   <div class=" col-md-1">
+   <div class=" col-md-1 col-md-offset-4">
       <% if current_user == comment.user %>
       <%= link_to "X", comment, method: :delete, remote: true %>
       <% end %>
