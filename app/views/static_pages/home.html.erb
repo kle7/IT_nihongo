@@ -108,19 +108,19 @@
          <div class="ndmv-celeb-filter-wrapper">
          </div>
          <div class="ndmv-ad-wrapper" id="scroller">
-            <h3>Movie you may like</h3>
+            <h3>Top Rate Movies</h3>
             <table class="table">
                 <thead>
                   <tr>
                     <th>Name</th>
-                    <th>Genre</th>
+                    <th>Rate</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <% @random_movies.each do |rdmovie| %>
+                  <% @top_movies.each do |rdmovie| %>
                      <tr class="success">
                        <td><%= link_to rdmovie.name, movie_path(rdmovie) %></td>
-                       <td><%= rdmovie.name %></td>
+                       <td><%= rdmovie.rates.average :vote %></td>
                      </tr>
                   <% end %>
                 </tbody>

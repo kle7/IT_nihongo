@@ -1,7 +1,10 @@
 class StaticPagesController < ApplicationController
   def home
-    @movies = Movie.all.page(params[:page]).per 12
-    @random_movies = Movie.order("RANDOM()").limit 10
+    @movies = Movie.all.page(params[:page]).per 8
+    @top_movies = Movie.all.sort{ |a,b| (a.rates.average :vote) <=> 
+      (b.rates.average :vote) || 
+      (b.rates.average :vote && -1) || 1}
+    @top_movies = @top_movies.last(10).reverse!
   end
 
   def about
