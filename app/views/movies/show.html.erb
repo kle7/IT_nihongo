@@ -118,9 +118,11 @@
       </div>
    </div>
 </section>
-<div class="container ndmv-main-container">
+<div class="container ndmv-main-container" style="position: relative;">
    <div class="row">
       <div class="ndmv-left-wrapper col-md-12 col-sm-12">
+        <br>
+        <br>
          <style type="text/css">
             .ndmv-review-detail img{
             max-width: 100%;min-width: 100%;
@@ -189,7 +191,101 @@
          </div>
          <!--  adblocker taboola -->
       </div>
-      <div class="ndmv-right-wrapper col-md-4 col-sm-4" >
+      <div class="ndmv-right-wrapper col-md-4 col-sm-4" style="top: 0;">
+        <ul class="ndmv-celeb-list">
+            <li style="width: 100%; margin-top: 20px;">
+              <h4>Same Genre Movie</h4>
+                <div class="ndmv-celeb-blk ndmv-greybg">
+                  <div class="ndmv-common-img-wrapper"><%= image_tag @same_genre_movie.image %></div>
+                  <div class="ndmv-review-title">
+                     <h4><%= link_to @same_genre_movie.name, movie_path(@same_genre_movie.id) %></h4>
+                     <h5>Hindi / 
+                        <% @same_genre_movie.genres.each do |genre| %>
+                        <%= genre.name %>
+                        <% end %>
+                     </h5>
+                     <% @count = @same_genre_movie.rates.average :vote %>
+                     <div class="ndmv-movie-rating">
+                         <% if @count.nil? %>
+                            <span class="rating-null"></span>
+                            <span class="rating-null"></span>
+                            <span class="rating-null"></span>
+                            <span class="rating-null"></span>
+                            <span class="rating-null"></span>
+                        <% elsif (@count < 0.5) %>
+                            <span class="rating-null"></span>
+                            <span class="rating-null"></span>
+                            <span class="rating-null"></span>
+                            <span class="rating-null"></span>
+                            <span class="rating-null"></span>
+                        <% elsif (0.5 <= @count && @count < 1) %>
+                            <span class="rating-half"></span>
+                            <span class="rating-null"></span>
+                            <span class="rating-null"></span>
+                            <span class="rating-null"></span>
+                            <span class="rating-null"></span>
+                        <% elsif (1 <= @count && @count < 1.5) %>
+                            <span class="rating-full"></span>
+                            <span class="rating-null"></span>
+                            <span class="rating-null"></span>
+                            <span class="rating-null"></span>
+                            <span class="rating-null"></span>
+                        <% elsif (1.5 <= @count && @count < 2) %>
+                            <span class="rating-full"></span>
+                            <span class="rating-half"></span>
+                            <span class="rating-null"></span>
+                            <span class="rating-null"></span>
+                            <span class="rating-null"></span>
+                          <% elsif (2 <= @count && @count < 2.5) %>
+                            <span class="rating-full"></span>
+                            <span class="rating-full"></span>
+                            <span class="rating-null"></span>
+                            <span class="rating-null"></span>
+                            <span class="rating-null"></span>
+                        <% elsif (2.5 <= @count && @count < 3) %>
+                            <span class="rating-full"></span>
+                            <span class="rating-full"></span>
+                            <span class="rating-half"></span>
+                            <span class="rating-null"></span>
+                            <span class="rating-null"></span>
+                         <% elsif (3 <= @count && @count < 3.5) %>
+                            <span class="rating-full"></span>
+                            <span class="rating-full"></span>
+                            <span class="rating-full"></span>
+                            <span class="rating-null"></span>
+                            <span class="rating-null"></span>
+                        <% elsif (3.5 <= @count && @count < 4) %>
+                            <span class="rating-full"></span>
+                            <span class="rating-full"></span>
+                            <span class="rating-full"></span>
+                            <span class="rating-half"></span>
+                            <span class="rating-null"></span>
+                        <% elsif (4 <= @count && @count < 4.5) %>
+                            <span class="rating-full"></span>
+                            <span class="rating-full"></span>
+                            <span class="rating-full"></span>
+                            <span class="rating-full"></span>
+                            <span class="rating-null"></span>
+                        <% elsif (4.5 <= @count && @count < 5) %>
+                            <span class="rating-full"></span>
+                            <span class="rating-full"></span>
+                            <span class="rating-full"></span>
+                            <span class="rating-full"></span>
+                            <span class="rating-half"></span>
+                        <% elsif ( @count = 5) %>
+                            <span class="rating-full"></span>
+                            <span class="rating-full"></span>
+                            <span class="rating-full"></span>
+                            <span class="rating-full"></span>
+                            <span class="rating-full"></span>
+                        <% end %> 
+                     </div>
+                     <h6><span>Starring:</span>Soha Ali Khan, Vir Das, Lakha Lakhwinder Singh, Pritam Kagne</h6>
+                     <h6><span>Director:</span>Shivaji Lotan Patil</h6>
+                  </div>
+                </div>
+            </li>
+         </ul>
       </div>
    </div>
 </div>

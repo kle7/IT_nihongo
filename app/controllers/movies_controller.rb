@@ -4,6 +4,8 @@ class MoviesController < ApplicationController
   def show
     @rate = Rate.new
     @votes = Rate.votes
+    @genre = @movie.genres.first
+    @same_genre_movie = @genre.movies.sample
   end
   
   def find_movie
