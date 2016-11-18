@@ -11,7 +11,7 @@ class MoviesController < ApplicationController
   def find_movie
     @movie = Movie.find_by id: params[:id]
     if @movie.nil?
-      flash[:danger] = t "genre.empty"
+      flash[:now][:danger] = t "genre.empty"
       redirect_to admin_root_path
     end
   end

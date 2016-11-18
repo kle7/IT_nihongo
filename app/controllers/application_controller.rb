@@ -20,7 +20,8 @@ class ApplicationController < ActionController::Base
   def set_global_search_variable
     @genres = Genre.includes :movies
     @search = Movie.search params[:q]
-    @movies = @search.result.includes(:genres).page params[:page]
+    @movies = @search.result.includes(:genres).page(params[:page]).per(8)
+    @years = Movie.select(:year).where.not('year' => nil).map(&:year).uniq.sort
   end
 
   def current_ability

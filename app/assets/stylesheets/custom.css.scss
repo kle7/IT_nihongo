@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+.alert-notice {
+  @include alert-variant($alert-success-bg, 
+    $alert-success-border, $alert-success-text);
+}
 @mixin box_sizing {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -283,4 +287,16 @@ td {
 }
 .comment_form{
   border-bottom: solid 2px #ddd;
+}
+
+#container-margin {
+  margin-top : 70px;
+  margin-bottom: 70px;
+}
+
+.add_fields {
+  float: right;
+}
+.button_form {
+  float: right;
 }

@@ -8,8 +8,11 @@ class Movie < ActiveRecord::Base
 
   validates :name, presence: true
   validates :content, presence: true
+  validates :year, presence: true
 
   accepts_nested_attributes_for :genres
+  
+  scope :reviewed_movie, ->user_id{where "movies.id IN (SELECT movie_id FROM rates WHERE user_id = ?)", user_id}
 
   include Bootsy::Container
   mount_uploader :image, MovieImageUploader

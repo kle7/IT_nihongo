@@ -6,30 +6,30 @@
   <% end %>
   <div><%= link_to_add_fields t("movie.add_condition"), 
     f, :condition %></div>
-  <div class="actions"><%= f.submit t("movie.search"), 
+  <div class="actions" style="width: 120px; float: right; margin-top: 25px; margin-right: -80px;"><%= f.submit t("movie.search"), 
     class: "btn btn-primary" %></div>
 <% end %>
 
-<table id="table_wrapper">
-  <tr>
+<table id="table_wrapper" >
+  <tr style="line-height: 30px; size: 5px;">
     <th><%= sort_link @search, :name, t("table.name") %></th>
     <th><%= sort_link @search, :movie_genre, t("table.description") %></th>
-    <th><%= t :action %></th>
+    <th style="text-align: right; "><%= t :action %></th>
   </tr>
   <% @movies.each do |movie| %>
-    <tr>
+    <tr style="line-height: 40px;">
       <td><%= link_to movie.name, admin_movie_path(movie) %></td>
       <td>
         <% movie.genres.each do |genre| %>
           <%= genre.name %>
         <% end %>
       </td>
-      <td>
-        <%= link_to t("movie.edit"), edit_admin_movie_path(movie), 
-          class: "btn btn-primary" %>
-        <%= link_to t("movie.delete"), admin_movie_path(movie),
-          method: :destroy, data: {confirm: t("flash.confirm")}, 
-          class: "btn btn-danger" %>
+      <td style="text-align: right;">
+        <%= link_to "", edit_admin_movie_path(movie), 
+          class: "glyphicon glyphicon-edit" %>
+        <%= link_to "", admin_movie_path(movie),
+          method: :delete, data: {confirm: t("flash.confirm")}, 
+          class: "glyphicon glyphicon-trash" %>
       </td>
     </tr>
   <% end %>

@@ -1,17 +1,17 @@
 <table width="100%">
-  <tr>
-    <th width="70%"><%= :name %></th>
-    <th width="30%"><%= t :action %></th>
+  <tr style="line-height: 30px">
+    <th><%= :name %></th>
+    <th style="text-align: right;"><%= t :action %></th>
   </tr>
   <% @genres.each do |genre| %>
-    <tr>
+    <tr style="line-height: 30px">
       <td><%= link_to genre.name, "#" %></td>
-      <td>
-        <%= link_to t("edit"), edit_admin_genre_path(genre), 
-          class: "btn btn-primary" %>
-        <%= link_to t("delete"), admin_genre_path(genre),
+      <td style="text-align: right;">
+        <%= link_to "", edit_admin_genre_path(genre), 
+          class: "glyphicon glyphicon-edit" %>
+        <%= link_to "", admin_genre_path(genre),
           method: :delete, data: {confirm: t("flash.confirm")}, 
-          class: "btn btn-danger" %>
+          class: "glyphicon glyphicon-trash" %>
       </td>
     </tr>
   <% end %>

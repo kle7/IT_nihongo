@@ -8,7 +8,7 @@ class GenresController < ApplicationController
   def find_genre
     @genre = Genre.find_by id: params[:id]
     if @genre.nil?
-      flash[:danger] = t "user.empty"
+      flash[:now][:danger] = t "user.empty"
       redirect_to admin_root_path
     end
   end
