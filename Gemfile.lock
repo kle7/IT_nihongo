@@ -180,6 +180,9 @@ GEM
     sdoc (0.4.2)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    social-share-button (0.3.2)
+      coffee-rails
+      sass-rails
     spring (2.0.0)
       activesupport (>= 4.2)
     sprockets (3.7.0)
@@ -236,6 +239,7 @@ DEPENDENCIES
   ransack!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  social-share-button
   spring
   sqlite3
   turbolinks

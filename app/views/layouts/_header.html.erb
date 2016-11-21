@@ -78,30 +78,31 @@
                      </div>
                   </div>
                   <div class="col-md-4 col-sm-4">
-                     <nav class="ndmv-logosocial">
-                        <a href="#" class="ndmv-social-icons icon-facebook"></a>
-                        <a href="#" class="ndmv-social-icons icon-twitter"></a>
-                        <a class="ndmv-social-icons icon-feed" href="#"></a>
-                    </nav>
+                    <% if user_signed_in? %>
+                      <nav class="ndmv-logosocial">
+                        <%= social_share_button_tag(current_user.user_name, 
+                          :url => "https://fels169.herokuapp.com/") %>
+                      </nav>
+                    <% end %>
                   </div>
                </div>
             </div>
          </div>
          <div class="ndmv-primary-menu">
             <div class="container">
-               <div class="row ndmv-special-nav" id="head">
+               <div class="row ndmv-special-nav" id="head" style="height:60px;">
                   <div class="inkmob-mobnav">
                      <div id="inkmob-toggle" type="button" class="inkmob-toggle">
                         <span class="icon-bar"></span><span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </div>
-                     <a href="http://movies.ndtv.com/" class="inkmob-mobbrand">
-                        <img class="wap-logo" src='http://movies.ndtv.com/static/images/wap_logo.png'/></a>
+                     <a href="http://localhost:3000" class="inkmob-mobbrand">
+                        <img class="wap-logo" src='logo.png'/></a>
                      <div class="ndmv-search-wrap">
                         <form autocomplete="on" onsubmit="return searchMe('mobile');"><input name="qm" id="search_text_m" type="text" placeholder="Search..."><i class="icon-search" onclick="javascript:searchMe('mobile');"></i></form>
                      </div>
                   </div>
-                  <div class="col-xs-9">
+                  <div class="col-md-7">
                      <div id="inkmob-nav-wrapper" class="inkmob-nav-wrapper"></div>
                      <div id="inkmob-nav-inner" class="inkmob-nav-inner">
                         <div id="scroller">
@@ -118,24 +119,26 @@
                         </div>
                      </div>
                   </div>
-                  <div class="col-xs-7">
+                  <div class="col-md-9">
                      <div class="ndmv-searchblock">
                         <div class="ndmv-defaultsearch">
                            <div class="ndmv-searchbox">
                               <%= search_form_for @search, url: searchs_path,
                                 html: {class: "navbar-form", role: "form"} do |f| %>
                                 <div>
-                                  <div class="col-xs-2">
+                                  <div class="col-md-2">
                                     <%= f.select :genres_id_eq,
                                       options_from_collection_for_select(@genres, "id", "name",
                                       @search.genres_id_eq), {include_blank: "Genre"},
                                       {class: "form-control"} %>
+                                  </div>                                
+                                  <div class="col-md-2 col-md-offset-1">
+                                    <%= f.select :year_eq,
+                                      options_for_select(@years, @search.year_eq), {include_blank: "Year"}, 
+                                      {class: "form-control"} %>
                                   </div>
-                                  <div class="col-xs-2 col-xs-offset-2">
-                                    <%= f.select :year_eq, options_for_select([["Year", ""], 1990, 1991, 2000, 2001, 2016]), {}, { class: "form-control" } %>
-                                  </div>
-                                  <div class="col-xs-8 col-xs-offset-1">
-                                    <div class="col-xs-16">
+                                  <div class="col-md-8">
+                                    <div class="col-md-16">
                                       <%= f.text_field :name_cont, placeholder: "Movie Name",
                                         class: "form-control" %>
                                       <%= button_tag(type: "submit", class: "btn btn-default") do %>

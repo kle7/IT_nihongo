@@ -4,6 +4,9 @@ class Admin::BaseController < ApplicationController
 
   private
   def verify_admin
-    redirect_to root_url unless current_user.admin?
+    if current_user.nil? || !current_user.admin?
+      flash[:info] = "You dont have permission"
+      redirect_to root_url
+    end
   end
 end

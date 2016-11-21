@@ -15,7 +15,7 @@ class Admin::UsersController < Admin::BaseController
 
   def destroy
     if @user.destroy
-      flash[:success] = t "movie.deleted"
+      flash[:success] = t "user.deleted"
     else
       flash[:danger] = t "flash.fail"
     end

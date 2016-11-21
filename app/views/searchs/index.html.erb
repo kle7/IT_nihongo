@@ -12,7 +12,7 @@
                   <div class="ndmv-common-img-wrapper"><%= image_tag movie.image %></div>
                   <div class="ndmv-review-title">
                      <h4><%= link_to movie.name, movie_path(movie.id) %></a></h4>
-                     <h5>Hindi / 
+                     <h5>
                         <% movie.genres.each do |genre| %>
                         <%= genre.name %>
                         <% end %>
@@ -94,7 +94,7 @@
                         <% end %> 
                      </div>
                      <h6><span>Starring:</span>Soha Ali Khan, Vir Das, Lakha Lakhwinder Singh, Pritam Kagne</h6>
-                     <h6><span>Director:</span>Shivaji Lotan Patil</h6>
+                     <h6><span>Year:</span><%= movie.year %></h6>
                   </div>
                </div>
             </li>

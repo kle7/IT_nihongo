@@ -19,6 +19,7 @@ gem "font-awesome-rails"
 gem "font-awesome-sass"
 gem 'kaminari', github: "amatsuda/kaminari", branch: "0-17-stable"
 gem "ransack", github:"activerecord-hackery/ransack", branch:"master"
+gem "social-share-button"
 
 group :development, :test do
   gem "byebug"
