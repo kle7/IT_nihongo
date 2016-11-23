@@ -17,17 +17,83 @@ User.create! user_name: "User", email: "test@gmail.com",
   User.create! user_name: name, email: email, password: password,
     password_confirmation: password, role: 0
 end
-5.times do |n|
-  name  = Faker::Name.name
-  Genre.create! name: name
-end
+Genre.create! name:"Funny"
+Genre.create! name:"Advanture"
+Genre.create! name:"Fantasy"
+Genre.create! name:"Action"
+Genre.create! name:"Honor"
 
-50.times do |n|
+10.times do |n|
   name  = Faker::Name.name
   content = Faker::Lorem.sentence
-  movie = Movie.create! name: name, content: content
+  year = rand(1900...2016)
+  actor = Faker::Name.name
+  movie = Movie.create! name: name, content: content, year: year, actor: actor
   movie_id = movie.id
   genre_id = 1
   MovieGenre.create! movie_id: movie_id, genre_id: genre_id
 end
-Movie.create! name:"One Punch Man", content:"Hello World"
+
+10.times do |n|
+  name  = Faker::Name.name
+  content = Faker::Lorem.sentence
+  year = rand(1990...2016)
+  actor = Faker::Name.name
+  movie = Movie.create! name: name, content: content, year: year, actor: actor
+  movie_id = movie.id
+  genre_id = 1
+  MovieGenre.create! movie_id: movie_id, genre_id: genre_id
+end
+
+10.times do |n|
+  name  = Faker::Name.name
+  content = Faker::Lorem.sentence
+  year = rand(1990...2016)
+  actor = Faker::Name.name
+  movie = Movie.create! name: name, content: content, year: year, actor: actor
+  movie_id = movie.id
+  genre_id = 2
+  MovieGenre.create! movie_id: movie_id, genre_id: genre_id
+end
+
+10.times do |n|
+  name  = Faker::Name.name
+  content = Faker::Lorem.sentence
+  year = rand(1990...2016)
+  actor = Faker::Name.name
+  movie = Movie.create! name: name, content: content, year: year, actor: actor
+  movie_id = movie.id
+  genre_id = 3
+  MovieGenre.create! movie_id: movie_id, genre_id: genre_id
+end
+
+10.times do |n|
+  name  = Faker::Name.name
+  content = Faker::Lorem.sentence
+  year = rand(1990...2016)
+  actor = Faker::Name.name
+  movie = Movie.create! name: name, content: content, year: year, actor: actor
+  movie_id = movie.id
+  genre_id = 4
+  MovieGenre.create! movie_id: movie_id, genre_id: genre_id
+end
+
+10.times do |n|
+  name  = Faker::Name.name
+  content = Faker::Lorem.sentence
+  year = rand(1990...2016)
+  actor = Faker::Name.name
+  movie = Movie.create! name: name, content: content, year: year, actor: actor
+  movie_id = movie.id
+  genre_id = 5
+  MovieGenre.create! movie_id: movie_id, genre_id: genre_id
+end
+
+20.times do |n|
+  user_id = rand(1...50)
+  movie_id = rand(1...50)
+  vote = rand(1...5)
+  Rate.create! user_id: user_id, movie_id: movie_id, vote: vote
+end
+
+Movie.create! name:"One Punch Man", content:"Hello World", year: 2016, actor: "saitama"

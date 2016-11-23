@@ -3,7 +3,7 @@
 <section class="ndmv-celeb-detail-breadcrumb">
    <div class="container">
       <div class="ndmv-celeb-detail-bread ndmv-review-breadcrumb">
-         <a href="#">Home</a><a href="#">Movie Reviews</a>
+         <a href="#">Movie Reviews</a>
          <h1 itemprop="headline" class='item'><%= @movie.name %></h1>
          <div class="ndmv-datetime reviewer"><span><a class="fn" href="#">Admin</a> &nbsp;&nbsp;|  
             <span class='dtreviewed'><%= @movie.created_at %></span></span>
@@ -147,11 +147,11 @@
                      </li>
                      <li>
                         <div class="ndmv-celeb-label">Cast:</div>
-                        <div class="ndmv-celeb-detail">Soha Ali Khan, Vir Das, Lakha Lakhwinder Singh, Pritam Kagne</div>
+                        <div class="ndmv-celeb-detail"><%= @movie.actor %></div>
                      </li>
                      <li>
                         <div class="ndmv-celeb-label">Year:</div>
-                        <div class="ndmv-celeb-detail">2012</div>
+                        <div class="ndmv-celeb-detail"><%= @movie.year %></div>
                      </li>
                   </ul>
                </div>
@@ -199,7 +199,7 @@
                   <div class="ndmv-common-img-wrapper"><%= image_tag @same_genre_movie.image %></div>
                   <div class="ndmv-review-title">
                      <h4><%= link_to @same_genre_movie.name, movie_path(@same_genre_movie.id) %></h4>
-                     <h5>Hindi / 
+                     <h5>
                         <% @same_genre_movie.genres.each do |genre| %>
                         <%= genre.name %>
                         <% end %>
