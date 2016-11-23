@@ -11,10 +11,14 @@
                <div class="ndmv-celeb-blk ndmv-greybg">
                   <div class="ndmv-common-img-wrapper"><%= image_tag movie.image %></div>
                   <div class="ndmv-review-title">
-                     <h4><%= link_to movie.name, movie_path(movie.id) %></a></h4>
+                     <h4><%= link_to highlight(movie.name, @search.name_cont), movie_path(movie.id) %></a></h4>
                      <h5>
                         <% movie.genres.each do |genre| %>
-                        <%= genre.name %>
+                          <% if genre.id == @search.genres_id_eq %>
+                            <%= highlight(genre.name, genre.name) %>
+                          <% elsif %>
+                            <%= genre.name %>
+                          <% end %>
                         <% end %>
                      </h5>
                      <% @count = movie.rates.average :vote %>
@@ -93,8 +97,14 @@
                             <span class="rating-full"></span>
                         <% end %> 
                      </div>
-                     <h6><span>Starring:</span>Soha Ali Khan, Vir Das, Lakha Lakhwinder Singh, Pritam Kagne</h6>
-                     <h6><span>Year:</span><%= movie.year %></h6>
+                     <h6><span>Starring:</span><%= movie.actor %></h6>
+                     <h6><span>Year:</span>
+                        <% if @search.year_eq %>
+                          <%= highlight(movie.year, movie.year) %>
+                        <% elsif %>
+                          <%= movie.year %>
+                        <% end %>
+                     </h6>
                   </div>
                </div>
             </li>

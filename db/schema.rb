@@ -12,13 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20161020085408) do
 
-  create_table "actors", force: :cascade do |t|
-    t.string   "name"
-    t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "bootsy_image_galleries", force: :cascade do |t|
     t.string   "bootsy_resource_type"
     t.integer  "bootsy_resource_id"
@@ -49,13 +42,6 @@ ActiveRecord::Schema.define(version: 20161020085408) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "movie_actors", force: :cascade do |t|
-    t.integer  "movie_id"
-    t.integer  "actor_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "movie_genres", force: :cascade do |t|
     t.integer  "genre_id"
     t.integer  "movie_id"
@@ -68,6 +54,7 @@ ActiveRecord::Schema.define(version: 20161020085408) do
     t.string   "content"
     t.string   "image"
     t.string   "year"
+    t.string   "actor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
