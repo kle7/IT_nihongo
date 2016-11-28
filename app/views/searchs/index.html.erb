@@ -7,7 +7,17 @@
          <h3>Search result</h3>
          <ul class="ndmv-celeb-list">
             <% @movies.each do |movie| %>
-            <li>
+            <li class = "movie_item">
+              <% if user_signed_in?%>
+                <form action="bookmarks/" method="post">
+                    <input type="hidden" name="movie_id" value="<%= movie.id%>"></input>
+                    <% if movie.bookmarks.where("user_id=?", current_user.id).any?%>
+                      <span class="glyphicon glyphicon-star bookmark bookmarked"></span>
+                    <%else%>
+                      <span class="glyphicon glyphicon-star bookmark"></span>
+                    <%end%>
+                </form>
+              <%end%>
                <div class="ndmv-celeb-blk ndmv-greybg">
                   <div class="ndmv-common-img-wrapper"><%= image_tag movie.image %></div>
                   <div class="ndmv-review-title">
@@ -95,7 +105,7 @@
                             <span class="rating-full"></span>
                             <span class="rating-full"></span>
                             <span class="rating-full"></span>
-                        <% end %> 
+                        <% end %>
                      </div>
                      <h6><span>Starring:</span><%= movie.actor %></h6>
                      <h6><span>Year:</span>
@@ -119,4 +129,3 @@
 </body>
 <!-- Mirrored from movies.ndtv.com/movie-reviews/bollywood by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 22 Oct 2016 07:50:26 GMT -->
 </html>
-

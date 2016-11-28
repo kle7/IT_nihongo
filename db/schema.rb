@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161020085408) do
+ActiveRecord::Schema.define(version: 20161128050100) do
+
+  create_table "bookmarks", id: false, force: :cascade do |t|
+    t.integer  "movie_id",   null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movie_id", "user_id"], name: "index_bookmarks_on_movie_id_and_user_id", unique: true
+  end
 
   create_table "bootsy_image_galleries", force: :cascade do |t|
     t.string   "bootsy_resource_type"

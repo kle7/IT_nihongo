@@ -1,0 +1,27 @@
+// Place all the styles related to the Bookmarks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.movie_item{
+  position: relative;
+}
+.bookmark{
+  display:block !important;
+  font-size: 40px;
+  cursor:pointer;
+  color:#91918b;
+  position: absolute !important;
+  right:0px !important;
+  top: 5px !important;
+  z-index: 1 !important;
+  width: 40px;
+}
+
+.bookmarked{
+  color:#f4dc42;
+}
+.unbookmark{
+  color:#91918b;
+}
+.bookmark:hover{
+  color:#f4dc42;
+}
