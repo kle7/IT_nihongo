@@ -3,7 +3,7 @@
     <div class="navbar-header">
       <%= link_to root_path do %>
         <%= image_tag "logo.jpeg", class: "header-img" %>
-      <% end %>  
+      <% end %>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
@@ -40,7 +40,7 @@
          <div class="ndmv-topnav-component">
             <div class="container">
               <div class="row">
-                <% if user_signed_in? %> 
+                <% if user_signed_in? %>
                   <nav class="ndmv-top-navigation">
                     <%= link_to t("users.logout"), destroy_user_session_path,
                       method: :delete %>
@@ -50,6 +50,9 @@
                   </nav>
                   <nav class="ndmv-top-navigation">
                     <%= link_to t("users.edit"), edit_user_registration_path %>
+                  </nav>
+                  <nav class="ndmv-top-navigation">
+                    <%= link_to t("Bookmark"), bookmarks_path %>
                   </nav>
                 <% else %>
                   <nav class="ndmv-top-navigation">
@@ -100,7 +103,7 @@
                               <a href="#" class="inkmob-arrow"></a><a class="icon-home-outline" href="http://localhost:3000">Home</a>
                               <% @genres.each do |genre| %>
                                 <li>
-                                   <%= link_to genre.name, genre_path(genre) %>   
+                                   <%= link_to genre.name, genre_path(genre) %>
                                 </li>
                               <% end %>
                               <li><a  class="cls-ndtv" href="#" >REVIEW MOVIES</a></li>
@@ -121,10 +124,10 @@
                                       options_from_collection_for_select(@genres, "id", "name",
                                       @search.genres_id_eq), {include_blank: "Genre"},
                                       {class: "form-control"} %>
-                                  </div>                                
+                                  </div>
                                   <div class="col-md-2 col-md-offset-1">
                                     <%= f.select :year_eq,
-                                      options_for_select(@years, @search.year_eq), {include_blank: "Year"}, 
+                                      options_for_select(@years, @search.year_eq), {include_blank: "Year"},
                                       {class: "form-control"} %>
                                   </div>
                                   <div class="col-md-8">

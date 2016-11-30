@@ -6,13 +6,14 @@ Rails.application.routes.draw do
     resources :users
     resources :genres
     resources :movies
-  end 
+  end
   resources :genres, only: :show
   resources :searchs, only: :index
   resources :users
+  resources :bookmarks, only: [:index, :create,:destroy]
   resources :movies
   resources :rates, only: :create
   resources :comments, only: [:create, :destroy]
   root "static_pages#home"
-  get "about" => "static_pages#about"  
+  get "about" => "static_pages#about"
 end
