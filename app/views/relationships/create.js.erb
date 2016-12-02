@@ -1,0 +1,3 @@
+$("#follow_form").html("<%= escape_javascript(render('users/unfollow')) %>");
+$("#rated_movies").html("<%= escape_javascript(render('users/rated_form')) %>");
+$("#followers").html('<%= @user.followers.count %>');
