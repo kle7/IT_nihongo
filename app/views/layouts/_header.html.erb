@@ -55,14 +55,18 @@
                     <%= link_to t("Bookmark"), bookmarks_path %>
                   </nav>
                   <nav class="ndmv-top-navigation">
-                    <form action="<%= %>" method="post">
-                    <span id="notification" class="glyphicon glyphicon-bell notification"><span id="number-notification">1</span>
-                      <ul class="notification-list">
-                        <li class="notification-item">
-                          <%= render '/shared/form_follow_request' %>
-                        </li>
-                      </ul>
+                    <span id="notification" class="glyphicon glyphicon-bell notification"><span id="number-notification">0</span>
                     </span>
+                    <%= form_tag("/notifications", method: "put") do%>
+                    <% end %>
+                    <%= form_tag("/notifications/show_list", method: "put") do%>
+                    <% end %>
+                    <ul class="notification-list">
+                      <li class="notification-item">
+                        <%= render :partial => '/shared/form_follow_request' %>
+                      </li>
+                      <li class="notification-item">You don't have notification</li>
+                    </ul>
                   </nav>
                 <% else %>
                   <nav class="ndmv-top-navigation">

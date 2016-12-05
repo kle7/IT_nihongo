@@ -20,6 +20,7 @@
 // window.setInterval(function(){
 //   alert("ok");
 // }, 5000);
+// flag = 0
 function notifications()
 {
     $.post("/notifications/user_update",
@@ -29,8 +30,10 @@ function notifications()
         {
           $("#notification").removeClass("notification-active");
           $("#notification").addClass("notification-active");
+          $('#number-notification').text(data.count);
         }else{
           $("#notification").removeClass("notification-active");
+          $('#number-notification').text(data.count);
         }
     });
 }

@@ -12,10 +12,11 @@ Rails.application.routes.draw do
     resources :genres
     resources :movies
   end
-  resources :notifications do
-    collection{post :user_update}
-    collection{get :form_folow_request}
-  end
+  post "notifications/user_update" => "notifications#user_update"
+  put "notifications" => "notifications#seen"
+  post "notifications/decline" => "notifications#decline"
+  post "notifications/accept" => "notifications#accept"
+  put "notifications/show_list" => "notifications#show_list"
   resources :relationships
   resources :genres, only: :show
   resources :searchs, only: :index

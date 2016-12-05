@@ -18,9 +18,10 @@
   margin: 0px;
   position: absolute;
   top: 38px;
-  left:6px;
+  // left:6px;
   background-color: rgba(0, 0, 0,0.6);
   display: none;
+  z-index: 2;
 }
 .notification-item{
   border-bottom: solid 1px #f9b107;
@@ -31,10 +32,12 @@
   text-decoration: none;
   list-style: none;
   float:left;
+  z-index: 3;
 }
 .follow-btns{
   margin-top: 15px;
   float:right;
+  display: inline-block;
 }
 
 .follow-btn{
@@ -42,6 +45,8 @@
   background-color: #f9b107;
   color:BLACK;
   border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
 }
 .notification-list-active{
   display: block;
