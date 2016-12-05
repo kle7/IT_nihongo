@@ -54,6 +54,16 @@
                   <nav class="ndmv-top-navigation">
                     <%= link_to t("Bookmark"), bookmarks_path %>
                   </nav>
+                  <nav class="ndmv-top-navigation">
+                    <form action="<%= %>" method="post">
+                    <span id="notification" class="glyphicon glyphicon-bell notification"><span id="number-notification">1</span>
+                      <ul class="notification-list">
+                        <li class="notification-item">
+                          <%= render '/shared/form_follow_request' %>
+                        </li>
+                      </ul>
+                    </span>
+                  </nav>
                 <% else %>
                   <nav class="ndmv-top-navigation">
                     <%= link_to t("users.signup"), new_user_registration_path %>

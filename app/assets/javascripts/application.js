@@ -16,3 +16,22 @@
 //= require bootstrap
 //= require bootsy
 //= require social-share-button
+// alert("here");
+// window.setInterval(function(){
+//   alert("ok");
+// }, 5000);
+function notifications()
+{
+    $.post("/notifications/user_update",
+    function(data)
+    {
+        if(data.count > 0)
+        {
+          $("#notification").removeClass("notification-active");
+          $("#notification").addClass("notification-active");
+        }else{
+          $("#notification").removeClass("notification-active");
+        }
+    });
+}
+setInterval(notifications, 5000);

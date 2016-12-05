@@ -1,0 +1,48 @@
+// Place all the styles related to the notifications controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#number-notification{
+  font-size:10px;
+  vertical-align: text-top;
+}
+.notification{
+  cursor:pointer;
+  color:#333;
+  position: relative;
+}
+.notification-active{
+  color:#f9b107;
+}
+.notification-list{
+  padding: 5px;
+  margin: 0px;
+  position: absolute;
+  top: 38px;
+  left:6px;
+  background-color: rgba(0, 0, 0,0.6);
+  display: none;
+}
+.notification-item{
+  border-bottom: solid 1px #f9b107;
+  padding: 5px;
+  padding-bottom: 15px;
+  width: 300px;
+  color:#f9b107;
+  text-decoration: none;
+  list-style: none;
+  float:left;
+}
+.follow-btns{
+  margin-top: 15px;
+  float:right;
+}
+
+.follow-btn{
+  padding: 5px;
+  background-color: #f9b107;
+  color:BLACK;
+  border-radius: 5px;
+}
+.notification-list-active{
+  display: block;
+}

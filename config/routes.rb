@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount Bootsy::Engine => '/bootsy', as: 'bootsy' 
+  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   devise_for :users
   resources  :users, :only => [:index, :show] do
     member do
@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     resources :users
     resources :genres
     resources :movies
+  end
+  resources :notifications do
+    collection{post :user_update}
+    collection{get :form_folow_request}
   end
   resources :relationships
   resources :genres, only: :show

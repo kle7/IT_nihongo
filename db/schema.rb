@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161130130740) do
+ActiveRecord::Schema.define(version: 20161205081310) do
 
   create_table "bookmarks", id: false, force: :cascade do |t|
     t.integer  "movie_id",   null: false
@@ -65,6 +65,17 @@ ActiveRecord::Schema.define(version: 20161130130740) do
     t.string   "actor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "reciver_id",     null: false
+    t.integer  "sender_id",      null: false
+    t.string   "link",           null: false
+    t.string   "content",        null: false
+    t.integer  "sender_status",  null: false
+    t.integer  "reciver_status", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "rates", force: :cascade do |t|
