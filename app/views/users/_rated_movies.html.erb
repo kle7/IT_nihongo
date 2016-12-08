@@ -11,9 +11,9 @@
                 <form action="bookmarks/" method="post">
                     <input type="hidden" name="movie_id" value="<%= movie.id%>"></input>
                     <% if movie.bookmarks.where("user_id=?", current_user.id).any?%>
-                      <span class="glyphicon glyphicon-star bookmark bookmarked"></span>
+                      <span class="glyphicon glyphicon-heart bookmark bookmarked"></span>
                     <%else%>
-                      <span class="glyphicon glyphicon-star bookmark"></span>
+                      <span class="glyphicon glyphicon-heart bookmark"></span>
                     <%end%>
                 </form>
               <%end%>
