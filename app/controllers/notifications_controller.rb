@@ -11,6 +11,7 @@ class NotificationsController < ApplicationController
 
   def follow_list
     @notifications = current_user.recived_notifications.where.not(reciver_status: 2)
+    @notifications = Kaminari.paginate_array(@notifications).page(params[:page]).per(8)
   end
 
   def show_list
