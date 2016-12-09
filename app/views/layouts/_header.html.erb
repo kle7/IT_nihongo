@@ -68,6 +68,9 @@
                       <li class="notification-item">You don't have notification</li>
                     </ul>
                   </nav>
+                  <nav class="ndmv-top-navigation">
+                    <%= link_to t("Follow"), notifications_follows_path %>
+                  </nav>
                 <% else %>
                   <nav class="ndmv-top-navigation">
                     <%= link_to t("users.signup"), new_user_registration_path %>
