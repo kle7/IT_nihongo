@@ -1,117 +1,119 @@
-<div class="container ndmv-main-container">
-   <div class="row">
-      <div class="ndmv-left-wrapper col-md-16 col-sm-16">
-         <div class="ndmv-celeb-filter-wrapper">
-         </div>
-         <h3>Bookmarked Movie</h3>
-         <ul class="ndmv-celeb-list">
-            <% @movies.each do |movie| %>
-            <li class = "movie_item">
-              <% if user_signed_in?%>
-                <form action="bookmarks/" method="post">
-                    <input type="hidden" name="movie_id" value="<%= movie.id%>"></input>
-                    <% if movie.bookmarks.where("user_id=?", current_user.id).any?%>
-                      <span class="glyphicon glyphicon-heart bookmark bookmarked"></span>
-                    <%else%>
-                      <span class="glyphicon glyphicon-heart bookmark"></span>
-                    <%end%>
-                </form>
-              <%end%>
-               <div class="ndmv-celeb-blk ndmv-greybg">
-                  <div class="ndmv-common-img-wrapper"><%= image_tag movie.image %></div>
-                  <div class="ndmv-review-title">
-                     <h4><%= link_to movie.name, movie_path(movie.id) %></a></h4>
-                     <h5>
-                        <% movie.genres.each do |genre| %>
-                        <%= genre.name %>
-                        <% end %>
-                     </h5>
-                     <% @count = movie.rates.average :vote %>
-                     <div class="ndmv-movie-rating">
-                         <% if @count.nil? %>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                        <% elsif (@count < 0.5) %>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                        <% elsif (0.5 <= @count && @count < 1) %>
-                            <span class="rating-half"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                        <% elsif (1 <= @count && @count < 1.5) %>
-                            <span class="rating-full"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                        <% elsif (1.5 <= @count && @count < 2) %>
-                            <span class="rating-full"></span>
-                            <span class="rating-half"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                          <% elsif (2 <= @count && @count < 2.5) %>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                        <% elsif (2.5 <= @count && @count < 3) %>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-half"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                         <% elsif (3 <= @count && @count < 3.5) %>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                        <% elsif (3.5 <= @count && @count < 4) %>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-half"></span>
-                            <span class="rating-null"></span>
-                        <% elsif (4 <= @count && @count < 4.5) %>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-null"></span>
-                        <% elsif (4.5 <= @count && @count < 5) %>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-half"></span>
-                        <% elsif ( @count = 5) %>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                        <% end %>
-                     </div>
-                     <h6><span>Starring:</span>Soha Ali Khan, Vir Das, Lakha Lakhwinder Singh, Pritam Kagne</h6>
-                     <h6><span>Year:</span><%= movie.year %></h6>
-                  </div>
-               </div>
-            </li>
-            <% end %>
-         </ul>
-         <div class="ndmv-pagination">
-           <%= paginate @movies %>
-         </div>
-      </div>
-   </div>
-</div>
+<% if @movies.any? %>  
+  <div class="container ndmv-main-container">
+     <div class="row">
+        <div class="col-md-12 col-sm-12">
+           <h3>Bookmarked Movie</h3>
+           <ul class="ndmv-celeb-list">
+              <% @movies.each do |movie| %>
+              <li class = "movie_item">
+                <% if user_signed_in?%>
+                  <form action="bookmarks/" method="post">
+                      <input type="hidden" name="movie_id" value="<%= movie.id%>"></input>
+                      <% if movie.bookmarks.where("user_id=?", current_user.id).any?%>
+                        <span class="glyphicon glyphicon-heart bookmark bookmarked"></span>
+                      <%else%>
+                        <span class="glyphicon glyphicon-heart bookmark"></span>
+                      <%end%>
+                  </form>
+                <%end%>
+                 <div class="ndmv-celeb-blk ndmv-greybg">
+                    <div class="ndmv-common-img-wrapper"><%= image_tag movie.image %></div>
+                    <div class="ndmv-review-title">
+                       <h4><%= link_to movie.name, movie_path(movie.id) %></a></h4>
+                       <h5>
+                          <% movie.genres.each do |genre| %>
+                          <%= genre.name %>
+                          <% end %>
+                       </h5>
+                       <% @count = movie.rates.average :vote %>
+                       <div class="ndmv-movie-rating">
+                           <% if @count.nil? %>
+                              <span class="rating-null"></span>
+                              <span class="rating-null"></span>
+                              <span class="rating-null"></span>
+                              <span class="rating-null"></span>
+                              <span class="rating-null"></span>
+                          <% elsif (@count < 0.5) %>
+                              <span class="rating-null"></span>
+                              <span class="rating-null"></span>
+                              <span class="rating-null"></span>
+                              <span class="rating-null"></span>
+                              <span class="rating-null"></span>
+                          <% elsif (0.5 <= @count && @count < 1) %>
+                              <span class="rating-half"></span>
+                              <span class="rating-null"></span>
+                              <span class="rating-null"></span>
+                              <span class="rating-null"></span>
+                              <span class="rating-null"></span>
+                          <% elsif (1 <= @count && @count < 1.5) %>
+                              <span class="rating-full"></span>
+                              <span class="rating-null"></span>
+                              <span class="rating-null"></span>
+                              <span class="rating-null"></span>
+                              <span class="rating-null"></span>
+                          <% elsif (1.5 <= @count && @count < 2) %>
+                              <span class="rating-full"></span>
+                              <span class="rating-half"></span>
+                              <span class="rating-null"></span>
+                              <span class="rating-null"></span>
+                              <span class="rating-null"></span>
+                            <% elsif (2 <= @count && @count < 2.5) %>
+                              <span class="rating-full"></span>
+                              <span class="rating-full"></span>
+                              <span class="rating-null"></span>
+                              <span class="rating-null"></span>
+                              <span class="rating-null"></span>
+                          <% elsif (2.5 <= @count && @count < 3) %>
+                              <span class="rating-full"></span>
+                              <span class="rating-full"></span>
+                              <span class="rating-half"></span>
+                              <span class="rating-null"></span>
+                              <span class="rating-null"></span>
+                           <% elsif (3 <= @count && @count < 3.5) %>
+                              <span class="rating-full"></span>
+                              <span class="rating-full"></span>
+                              <span class="rating-full"></span>
+                              <span class="rating-null"></span>
+                              <span class="rating-null"></span>
+                          <% elsif (3.5 <= @count && @count < 4) %>
+                              <span class="rating-full"></span>
+                              <span class="rating-full"></span>
+                              <span class="rating-full"></span>
+                              <span class="rating-half"></span>
+                              <span class="rating-null"></span>
+                          <% elsif (4 <= @count && @count < 4.5) %>
+                              <span class="rating-full"></span>
+                              <span class="rating-full"></span>
+                              <span class="rating-full"></span>
+                              <span class="rating-full"></span>
+                              <span class="rating-null"></span>
+                          <% elsif (4.5 <= @count && @count < 5) %>
+                              <span class="rating-full"></span>
+                              <span class="rating-full"></span>
+                              <span class="rating-full"></span>
+                              <span class="rating-full"></span>
+                              <span class="rating-half"></span>
+                          <% elsif ( @count = 5) %>
+                              <span class="rating-full"></span>
+                              <span class="rating-full"></span>
+                              <span class="rating-full"></span>
+                              <span class="rating-full"></span>
+                              <span class="rating-full"></span>
+                          <% end %>
+                       </div>
+                       <h6><span>Starring:</span><%= movie.actor %></h6>
+                       <h6><span>Year:</span><%= movie.year %></h6>
+                    </div>
+                 </div>
+              </li>
+              <% end %>
+           </ul>
+           <div class="ndmv-pagination">
+             <%= paginate @movies %>
+           </div>
+        </div>
+     </div>
+  </div>
+<% else %>
+  <h4>User didn't bookmark any movie</h4>
+<% end %>

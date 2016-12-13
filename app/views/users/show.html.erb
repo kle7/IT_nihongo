@@ -1,25 +1,35 @@
-<div class="container" id="container-margin">
-  <div class="page-header">
-    <section class="col-sm-4 col-sm-offset-4">
-      <div id="image_size">
-        <%= image_tag @user.avatar %>
+<div class="container">
+   <section style="padding-bottom: 50px; padding-top: 50px;">
+      <div class="row">
+         <div class="col-md-4 alert alert-info">
+            <div id="image_size">
+               <%= image_tag @user.avatar %>
+            </div>
+            <br />
+            <br />
+            <label>Email:  <%= @user.email %></label>
+            <br>
+            <label>User Name:  <%= @user.user_name %></label>
+            <br>
+            <label>Age:  <%= @user.age %></label>
+            <br>
+            <label>Phone Number: <%= @user.phone_number %></label>
+            <br>
+            <div>
+               <%= render 'shared/stats' %>
+               <%= render 'follow_form' if user_signed_in? %>
+            </div>
+            <br/><br/>
+         </div>
+         <div class="col-md-8">
+            <div>
+               <script type="text/javascript" src="http://movies.ndtv.com/static/js/ndtv.min.js?v=20160928"></script>
+               <%= render 'rated_form' %>
+            </div>
+         </div>
       </div>
-      <div>
-        <%= render 'shared/stats' %>
-        <%= render 'follow_form' if user_signed_in? %>
-      </div>
-    </section>
-    <section class="user_info col-sm-4">
-      <h3>email: <%= @user.email %></h1>
-      <h3>name: <%= @user.user_name %></h1>
-      <h3>age: <%= @user.age %></h1>
-      <h3>phone: <%= @user.phone_number %></h1>
-    </section>    
-  </div>
+      <!-- ROW END -->
+   </section>
+   <!-- SECTION END -->
 </div>
-<div>
-  <script type="text/javascript" src="http://movies.ndtv.com/static/js/ndtv.min.js?v=20160928"></script>
-  <%= render 'rated_form' %>
-</div>
-</body>
-</html>
+
