@@ -12,7 +12,7 @@ class RelationshipsController < ApplicationController
     notification.content = "follow"
     notification.link = "/"
     notification.save
-    current_user.follow(@user)
+    # current_user.follow(@user)
     respond_to do |format|
       format.html { redirect_to @user }
       format.js

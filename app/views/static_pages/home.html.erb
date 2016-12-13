@@ -5,114 +5,21 @@
          <div class="ndmv-celeb-filter-wrapper">
          </div>
          <h3>Newest Movie</h3>
-         <ul class="ndmv-celeb-list">
-            <% @movies.each do |movie| %>
-            <li class = "movie_item">
-              <% if user_signed_in?%>
-                <form action="bookmarks/" method="post">
-                    <input type="hidden" name="movie_id" value="<%= movie.id%>"></input>
-                    <% if movie.bookmarks.where("user_id=?", current_user.id).any?%>
-                      <span class="glyphicon glyphicon-heart bookmark bookmarked"></span>
-                    <%else%>
-                      <span class="glyphicon glyphicon-heart bookmark"></span>
-                    <%end%>
-                </form>
-              <%end%>
-               <div class="ndmv-celeb-blk ndmv-greybg">
-                  <div class="ndmv-common-img-wrapper"><%= image_tag movie.image %></div>
-                  <div class="ndmv-review-title">
-                     <h4><%= link_to movie.name, movie_path(movie.id) %></a></h4>
-                     <h5>
-                        <% movie.genres.each do |genre| %>
-                        <%= genre.name %>
-                        <% end %>
-                     </h5>
-                     <% @count = movie.rates.average :vote %>
-                     <div class="ndmv-movie-rating">
-                         <% if @count.nil? %>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                        <% elsif (@count < 0.5) %>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                        <% elsif (0.5 <= @count && @count < 1) %>
-                            <span class="rating-half"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                        <% elsif (1 <= @count && @count < 1.5) %>
-                            <span class="rating-full"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                        <% elsif (1.5 <= @count && @count < 2) %>
-                            <span class="rating-full"></span>
-                            <span class="rating-half"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                          <% elsif (2 <= @count && @count < 2.5) %>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                        <% elsif (2.5 <= @count && @count < 3) %>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-half"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                         <% elsif (3 <= @count && @count < 3.5) %>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-null"></span>
-                            <span class="rating-null"></span>
-                        <% elsif (3.5 <= @count && @count < 4) %>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-half"></span>
-                            <span class="rating-null"></span>
-                        <% elsif (4 <= @count && @count < 4.5) %>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-null"></span>
-                        <% elsif (4.5 <= @count && @count < 5) %>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-half"></span>
-                        <% elsif ( @count = 5) %>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                            <span class="rating-full"></span>
-                        <% end %>
-                     </div>
-                     <h6><span>Starring:</span><%= movie.actor %></h6>
-                     <h6><span>Year:</span><%= movie.year %></h6>
-                  </div>
-               </div>
-            </li>
-            <% end %>
-         </ul>
+         <hr>
+         <%= render "shared/movie_form", movies: @movies %>
          <div class="ndmv-pagination">
-           <%= paginate @movies %>
+            <%= paginate @movies %>
          </div>
+      </div>
+      <div class="ndmv-left-wrapper col-md-12 col-sm-12">
+         <% if user_signed_in? %>
+         <% @movies = get_following_user_movies current_user %>
+         <div class="ndmv-celeb-filter-wrapper">
+         </div>
+         <h3>Friend Liked Movies</h3>
+         <hr>
+         <%= render "shared/movie_form", movies: @movies %>
+         <% end %>
       </div>
       <div class="ndmv-right-wrapper col-md-4 col-sm-4" >
          <div class="ndmv-celeb-filter-wrapper">
@@ -120,25 +27,25 @@
          <div class="ndmv-ad-wrapper" id="scroller">
             <h3>Top Rate Movies</h3>
             <table class="table">
-                <thead>
+               <thead>
                   <tr>
-                    <th>Name</th>
-                    <th>Rate</th>
+                     <th>Name</th>
+                     <th>Rate</th>
                   </tr>
-                </thead>
-                <tbody>
+               </thead>
+               <tbody>
                   <% @top_movies.each do |rdmovie| %>
-                     <tr class="success">
-                       <td><%= link_to rdmovie.name, movie_path(rdmovie) %></td>
-                       <td><%= rdmovie.rates.average :vote %></td>
-                     </tr>
+                  <tr class="success">
+                     <td><%= link_to rdmovie.name, movie_path(rdmovie) %></td>
+                     <td><%= rdmovie.rates.average :vote %></td>
+                  </tr>
                   <% end %>
-                </tbody>
-              </table>
+               </tbody>
+            </table>
          </div>
       </div>
    </div>
 </div>
 </body>
-<!-- Mirrored from movies.ndtv.com/movie-reviews/bollywood by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 22 Oct 2016 07:50:26 GMT -->
 </html>
+
