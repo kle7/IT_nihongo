@@ -29,13 +29,13 @@ class NotificationsController < ApplicationController
   def seen
     notifications=current_user.recived_notifications.where(reciver_status: 0)
     notifications.each do |n|
-      n.reciver_status=1
+      n.reciver_status = 1
       n.save
     end
   end
   def accept
     notification = Notification.find(params[:notification_id])
-    notification.reciver_status=2;
+    notification.reciver_status = 2;
     notification.save
     n = Notification.new
     n.sender_id = current_user.id
@@ -45,6 +45,7 @@ class NotificationsController < ApplicationController
     n.content = "respone_follow"
     n.link = "accepted"
     n.save
+    notification.sender.follow(current_user)
   end
 
   def decline

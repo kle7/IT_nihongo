@@ -2,7 +2,13 @@ class UsersController < ApplicationController
   before_action :find_user, only: :show
   
   def show
-    @movies = Movie.reviewed_movie(@user.id).page(params[:page]).per(8)
+    @movies = []
+    bms= @user.bookmarks
+    bms.each do |bm|
+      @movies << bm.movie
+    end
+    # @ms = Movie.all
+    @movies = Kaminari.paginate_array(@movies).page(params[:page]).per(8)
   end
   
   def following

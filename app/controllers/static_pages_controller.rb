@@ -6,7 +6,7 @@ class StaticPagesController < ApplicationController
       (b.rates.average :vote && -1) || 1}
     @top_movies = @top_movies.last(10).reverse!
   end
-
+  
   def about
   end
 

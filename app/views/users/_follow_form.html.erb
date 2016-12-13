@@ -2,9 +2,10 @@
   <div id="follow_form">
   <% if current_user.following?(@user) %>
     <%= render 'unfollow' %>
+  <% elsif check_requested @user %>
+    <%= render "requested" %>
   <% else %>
     <%= render 'follow' %>
   <% end %>
   </div>
 <% end %>
-

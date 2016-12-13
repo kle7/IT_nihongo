@@ -11,6 +11,8 @@ class Movie < ActiveRecord::Base
   accepts_nested_attributes_for :genres
 
   scope :reviewed_movie, ->user_id{where "movies.id IN (SELECT movie_id FROM rates WHERE user_id = ?)", user_id}
+  scope :following_user_movies, ->user_id{where "movies.id IN (SELECT movie_id FROM bookmarks WHERE user_id IN 
+    (SELECT followed_id FROM relationships where follower_id = ?))", user_id}
 
   include Bootsy::Container
   mount_uploader :image, MovieImageUploader

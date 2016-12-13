@@ -13,4 +13,10 @@ module ApplicationHelper
     link_to name, "#", class: "add_fields", 
       data: {id: id, fields: fields.gsub("\n", "")}
   end
+  def check_requested user
+    User.sended_user(current_user).include? user
+  end
+  def get_following_user_movies user
+    @following_user_movies = Movie.following_user_movies(user.id).order("created_at").limit(8)
+  end
 end
