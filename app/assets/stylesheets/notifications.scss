@@ -51,3 +51,19 @@
 .notification-list-active{
   display: block;
 }
+.follow-table{
+  display: table;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 5px;
+}
+.follow-tr{
+  border-bottom: 1px solid #CCC;
+}
+.follow-td{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.follow-form{
+  float:right;
+}

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   post "notifications/decline" => "notifications#decline"
   post "notifications/accept" => "notifications#accept"
   put "notifications/show_list" => "notifications#show_list"
+  get "notifications/follows" => "notifications#follow_list"
   resources :relationships
   resources :genres, only: :show
   resources :searchs, only: :index

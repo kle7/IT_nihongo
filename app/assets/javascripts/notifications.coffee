@@ -8,6 +8,14 @@ jQuery ->
       text =""
       count = 0
       $.each data.notifications, ( index, notification ) ->
+        if data.notifications[index].content=="respone_follow"
+          text += "<li class='notification-item'>"+"<span><b>"
+          text += data.senders[index]
+          text += " </b>"
+          text += data.notifications[index].link
+          text += " your follow </span>"
+          text += "</li>"
+          count++
         if data.notifications[index].content=="follow"
           text += "<li class='notification-item'>"+"<span><b>"
           text += data.senders[index]
@@ -37,3 +45,13 @@ jQuery ->
     $(this).closest("li").remove()
     if $(".notification-list li").length==0
       $(".notification-list").html("<li class='notification-item'>You don't have notification</li>")
+  $( ".follow-table").on 'click', '.bnt-accept-follow', ->
+    $.post "/notifications/accept", $( this ).closest("form").serialize(), ->
+    $(this).closest("tr").remove()
+    if $(".follow-table tr").length==0
+      $(".follow-table").html("<tr class='follow-tr'><td>You don't have follow request</td></tr>")
+  $( ".follow-table" ).on 'click', '.bnt-decline-follow', ->
+    $.post "/notifications/decline", $( this ).closest("form").serialize(), ->
+    $(this).closest("tr").remove()
+    if $(".follow-table tr").length==0
+      (".follow-table").html("<tr class='follow-tr'><td>You don't have follow request</td></tr>")

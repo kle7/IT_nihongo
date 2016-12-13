@@ -1,0 +1,44 @@
+<script type="text/javascript" src="http://movies.ndtv.com/static/js/ndtv.min.js?v=20160928"></script>
+<div class="container ndmv-main-container">
+   <div class="row">
+      <div class="ndmv-left-wrapper">
+         <div class="ndmv-celeb-filter-wrapper">
+         </div>
+         <div class="ndmv-left-wrapper col-md-16 col-sm-16">
+            <h3>Follow request list</h3>
+             <table class="follow-table">
+               <%if @notifications.count !=0%>
+               <% @notifications.each do |n| %>
+                 <tr class="follow-tr">
+                   <td><b><%=n.sender.user_name%></b> want to follow you</td>
+                   <td class="follow-td">
+                     <form class="follow-form">
+                      <input name="notification_id" value="<%=n.id%>" type="hidden">
+                       <button type="button" class="btn btn-primary bnt-accept-follow">Accept</button>
+                       <button type="button" class="btn btn-primary bnt-decline-follow">Decline</button>
+                     </form>
+                   </td>
+                 </tr>
+                 <%end%>
+                 <% else %>
+                  <tr class='follow-tr'><td><b>You don't have follow request</b></td></tr>
+               <%end%>
+             <!-- <div class="col-lg-8"><b>Kien</b> want to follow you</div>
+             <div class="col-lg-8">
+               <form class="">
+                 <input name="notification_id" value="7" type="hidden">
+                <button type="button" class="btn btn-primary">Accept</button>
+                <button type="button" class="btn btn-primary">Decline</button>
+               </form>
+             </div> -->
+           </table>
+           <div class="ndmv-pagination">
+             <%= paginate @notifications %>
+           </div>
+         </div>
+      </div>
+   </div>
+</div>
+</body>
+<!-- Mirrored from movies.ndtv.com/movie-reviews/bollywood by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 22 Oct 2016 07:50:26 GMT -->
+</html>
