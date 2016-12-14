@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161205081310) do
+ActiveRecord::Schema.define(version: 20161214152437) do
 
   create_table "bookmarks", id: false, force: :cascade do |t|
     t.integer  "movie_id",   null: false
@@ -113,6 +113,8 @@ ActiveRecord::Schema.define(version: 20161205081310) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "provider"
+    t.string   "uid"
   end
 
 end
