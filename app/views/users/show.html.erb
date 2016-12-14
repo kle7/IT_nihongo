@@ -21,10 +21,14 @@
             </div>
             <br/><br/>
          </div>
-         <div class="col-md-8">
+         <div class="col-md-12">
             <div>
                <script type="text/javascript" src="http://movies.ndtv.com/static/js/ndtv.min.js?v=20160928"></script>
-               <%= render 'rated_form' %>
+               <% if user_signed_in? %>
+                 <%= render 'rated_form' %>
+               <% else %>
+                 <h3>You must create account and follow to see this user's bookmarked film</h3>
+               <% end %>
             </div>
          </div>
       </div>
