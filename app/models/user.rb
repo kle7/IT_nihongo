@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   enum role: {admin: 1, user: 0}
   mount_uploader :avatar, AvatarUploader
   scope :sended_user, ->user_id{where "SELECT reciver_id FROM notifications WHERE sender_id = ? 
-    AND reciver_status != ? ", user_id, 2}
+    AND reciver_status != ? AND content =? ", user_id, 2, "follow"}
 
   def has_voted movie
     movies = self.rates.collect {|r| r.movie}
