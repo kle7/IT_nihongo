@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
     @genres = Genre.includes :movies
     @search = Movie.search params[:q]
     @movies = @search.result.includes(:genres).page(params[:page]).per(8)
-    @years = Movie.select(:year).where.not('year' => nil).map(&:year).uniq.sort
+    @years = Movie.select(:year).where.not('year' => nil).map(&:year).uniq.sort.reverse!
   end
 
   def current_ability

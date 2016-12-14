@@ -36,7 +36,7 @@ en:
   user: 
     user: "User"
     index: "Index User"
-    deleted: "Movie have been deleted"
+    deleted: "User have been deleted"
     search: "Search"
     add_condition: "Add Condition"
   remove: "Remove"
