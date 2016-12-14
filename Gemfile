@@ -20,6 +20,7 @@ gem "font-awesome-sass"
 gem 'kaminari', github: "amatsuda/kaminari", branch: "0-17-stable"
 gem "ransack", github:"activerecord-hackery/ransack", branch:"master"
 gem "social-share-button"
+gem "omniauth-facebook"
 
 group :development, :test do
   gem "byebug"
